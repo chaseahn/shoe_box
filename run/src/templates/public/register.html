@@ -1,0 +1,31 @@
+<h1>ShoeBox</h1>
+<p>
+<h2>Register</h2>
+</p>   
+    <div>
+        <form action="/register" method="post" enctype="multipart/form-data">
+            <div>
+                <input name="username" type="text" placeholder="Username" autofocus required>
+            </div>
+            <div>
+                <input name="password" type="text" placeholder="Password" autofocus required>
+            </div>
+            <div>
+                <input name="conf_password" type="text" placeholder="Confirm Password" autofocus required>
+            </div>
+            <div>
+                <select name="age" method="get" action="/">
+                    {% for age in age_list %}
+                    <option value= "{{age}}">{{age}}</option>"
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <input type="checkbox" name='check' value="Male" />
+                <input type="checkbox" name='check' value='Female'/>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        <h3>{{ message }}</h3>
+    </div>
+    <p><a href="/">Home</a></p>
