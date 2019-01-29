@@ -1,1 +1,56 @@
-jrd
+<!DOCTYPE html>
+{% extends "structure.html" %}
+{% block viewport %}
+
+<div class = "main" align="center">
+    <p>
+        <font size="2" color="green">[filter by]</font>
+    </p>
+</div>
+<form action="/jrd" method="post" enctype="multipart/form-data">
+    <div class="body" align="center">
+            <font size="2" color="black">avg sale price</font>
+                <input type="radio" name='check' value="asp"/>
+            <font size="2" color="black">total sales</font>
+                <input type="radio" name='check' value="tts"/>
+            <font size="2" color="black">release date</font>
+                <input type="radio" name='check' value="rld"/>
+    </div>
+    <div class="body" align="center">
+            <font size="2" color="black">high</font>
+                <input type="radio" name='check2' value="high"/>
+            <font size="2" color="black">low</font>
+                <input type="radio" name='check2' value="low"/>
+                <font size="2" color="black">display</font>
+            <select name="num" method="get" action="/nke">
+                {% for num in display_nums %}
+                <option value= "{{num}}">{{num}}</option>"
+                {% endfor %}
+            </select>
+                <input name="post_button" type="submit" value="Filter">
+    </div>
+    <div class="body" align="center">
+        <input type="search_text" name="search_text" placeholder="Find Your Kicks"/>
+        <input name="post_button" type="submit" value="Search">
+    </div>
+    <div class="body" align="center">
+        <font size="2" color="red">{{ message }}</font>
+        <font size="2" color="green">{{ results }}</font>
+    </div>
+    <div class="body" align="center">
+        <input name="post_button" type="submit" value="Shuffle">
+    </div>
+</form>
+
+<div class="body" align="center">
+    {% for shoe in shoe_list %}
+    {% set filename = shoe +'.jpg' %}
+        <div style="float: middle; display: inline-block;">
+            <a href="/id/{{shoe}}">
+                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="130" height="95">
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

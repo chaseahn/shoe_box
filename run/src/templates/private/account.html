@@ -1,0 +1,67 @@
+{% extends "structure.html" %}
+{% block viewport %}
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
+
+<!DOCTYPE html>
+<div class="main" align="center">
+
+    <h2>HTML Table</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Shoe</th>
+        <th>Price Bought</th>
+        <th>Price Sold</th>
+        <th>Gain/Loss</th>
+        <th>Update</th>
+      </tr>
+      {% for shoe in shoebox.keys() %}
+      <tr>
+          <td>{{ shoebox[shoe]['type'] }}</td>
+          <td>{{ shoebox[shoe]['date'] }}</td>
+          <td>{{ shoebox[shoe]['shoename'] }}</td>
+          <td>{{ shoebox[shoe]['price_bought'] }}</td>
+          <td>{{ shoebox[shoe]['price_sold'] }}</td>
+          <td>returns</td>
+          <td>
+            <form action="" method="post" enctype="multipart/form-data">
+              <input type="submit" value="Update" name="post_button">
+            </form>
+          </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <h3>{{ message }}</h3>
+  </p>
+</div>
+<div class="body" align="center">
+  <h3>Favorites</h3>
+</div>
+  <div class="body" align="center">
+    {% for shoe in favList %}
+    {% set filename = shoe +'.jpg' %}
+        <div style="float: middle; display: inline-block;">
+            <a href="/id/{{shoe}}">
+                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="130" height="95">
+            </a>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,20 +1,82 @@
-<!DOCTYPE html>
 
-<h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspView Brands</h1>
+{% extends "structure.html" %}
+{% block viewport %}
+
+<!DOCTYPE html>
+<style>
+.vertical-divider{
+	clear: both;
+	position: relative;
+}
+
+.vertical-divider:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.vertical-divider .column:not(:first-child):after, .vertical-divider .columns:not(:first-child):after{
+	background: #DDDDDD;
+	bottom: 0;
+	content: " ";
+	margin-left: -160px;
+	position: absolute;
+	top: 0;
+	width: 1px;
+}
+
+/* Very simple grid for example */
+.container { position: relative; width: 960px; margin: 20px auto; padding: 0;}
+
+.container .column, .container .columns { float: left; margin-left: 10px; margin-right: 10px; }
+
+.container .one-third.column { width: 300px; }
+
+.container .two-thirds.column { width: 620px; }
+</style>
+
+<div class="main" align="center">
+    <img class="img" type="image" src="{{ url_for('static', filename='index_text_head.png') }}" title="trending" width=30%>
+</div>
+<div class="body" align="center">
+        <img class="img" type="image" src="{{ url_for('static', filename='index_new_img.png') }}" title="trending" width="470">
+        <img class="img" type="image" src="{{ url_for('static', filename='index_finder_img.png') }}" title="trending" width="470">
+        <img class="img" type="image" src="{{ url_for('static', filename='index_global_img.png') }}" title="trending" width="470">
+</div>
+<div class="body" align="center">
+        <div class="container vertical-divider">
+                <div class="column one-third">
+                  <h3># of Shoes</h3>
+                  <p>number</p>
+                </div>
+                <div class="column one-third">
+                  <h3>Known Sales</h3>
+                  <p>sales</p>
+                </div>
+                <div class="column one-third">
+                  <h3>Total Value</h3>
+                  <p>value</p>
+                </div>
+              </div>
+        </div>
 <p>
-    <body>
-        <form action="/" method="post">
-            <img type="image" src="{{ url_for('static', filename='nike_logo.png') }}" alt="Adidas" width="100" height="100">
-            <img type="image" src="{{ url_for('static', filename='adidas_logo.png') }}" alt="Adidas" width="100" height="100">
-            <img type="image" src="{{ url_for('static', filename='jordan_logo.png') }}" alt="Adidas" width="100" height="100">
-        </form>
-        <form action="/" method="post">
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input name="post_image" type="submit" value="nike" >
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input name="post_image" type="submit" value="adidas" >
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input name="post_image" type="submit" value="jordan" >
-        </form>
-    </body>
-</p>
-<p>
-    <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRecommender</h1>
-</p>
+        <div class="body" align="center">
+            <img class="img" type="image" src="{{ url_for('static', filename='index_trending_font.png') }}" title="trending" width=33%>
+        </div>
+    </p>
+<div class="body" align="center">
+    {% for trends in trendList %}
+    {% set filename = trends +'.jpg' %}
+        <div style="float: middle; display: inline-block;">
+            <a href="/id/{{trends}}">
+                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="140" height="100">
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

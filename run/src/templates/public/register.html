@@ -1,31 +1,68 @@
-<h1>ShoeBox</h1>
-<p>
-<h2>Register</h2>
-</p>   
+{% extends "structure.html" %}
+{% block viewport %}
+<!DOCTYPE html>
+<style>
+    input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 2px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number], select {
+  width: 5%;
+  padding: 12px 20px;
+  margin: 8px 2px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+    input[type=submit] {
+  width: 25%;
+  background-color: #9653e8;
+  color: white;
+  padding: 14px 20px;
+  margin: 30px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #97eff1;
+}
+</style>
+
+<div class="main" align="center">
+    <img type="image" src="{{ url_for('static', filename='sicon_register.png') }}" alt="Register" width="280" height="160">
+</div>
+<form action="/register" method="post" enctype="multipart/form-data">
+<div class="body" align="center">
     <div>
-        <form action="/register" method="post" enctype="multipart/form-data">
-            <div>
-                <input name="username" type="text" placeholder="Username" autofocus required>
-            </div>
-            <div>
-                <input name="password" type="text" placeholder="Password" autofocus required>
-            </div>
-            <div>
-                <input name="conf_password" type="text" placeholder="Confirm Password" autofocus required>
-            </div>
-            <div>
-                <select name="age" method="get" action="/">
-                    {% for age in age_list %}
-                    <option value= "{{age}}">{{age}}</option>"
-                    {% endfor %}
-                </select>
-            </div>
-            <div>
-                <input type="checkbox" name='check' value="Male" />
-                <input type="checkbox" name='check' value='Female'/>
-            </div>
-            <input type="submit" value="Submit">
-        </form>
-        <h3>{{ message }}</h3>
+        <input name="username" type="text" placeholder="Username" autofocus required>
     </div>
-    <p><a href="/">Home</a></p>
+    <div>
+        <input name="password" type="text" placeholder="Password" autofocus required>
+    </div>
+    <div>
+        <input name="conf_password" type="text" placeholder="Confirm Password" autofocus required>
+    </div>
+    <div>
+        <a>Age</a>
+        <select type="number" name="age" method="get" action="/">
+            {% for age in age_list %}
+            <option value= "{{age}}">{{age}}</option>"
+            {% endfor %}
+        </select>
+        <a>Male</a>
+        <input type="radio" name='check' value="Male" />
+        <a>Female</a>
+        <input type="radio" name='check' value='Female'/>
+    </div>
+    <input type="submit" value="Next">
+</div>
+</form>
+<h3>{{ message }}</h3>
+    {% endblock %}

@@ -1,0 +1,82 @@
+{% extends "structure.html" %}
+{% block viewport %}
+<style>
+.img {
+    float: center;
+    height: auto; 
+    width: auto; 
+    max-width: 700px; 
+    max-height: 700px;
+}
+</style>
+<style>
+table {
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #9653e8;
+  color: #97eff1;
+}
+</style>
+<style>
+   input[type=submit] {
+  width: 10%;
+  background-color: #9653e8;
+  color: white;
+  padding: 14px 10px;
+  margin: 30px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #97eff1;
+}
+</style>
+
+<div class="main" align="center">
+    <h1>{{shoename}}</h1>
+</div>
+<div class="body" align="center">
+    {% set filename = shoename+'.jpg' %}
+    <img class="img" type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}">
+</div>
+<div class="body" align="center">
+    <table>
+        <tr>
+            <th>Release Date</th>
+            <th>Colorway</th>
+            <th>Retail Price</th>
+            <th>Avg Sale Price</th>
+            <th>Price Premium</th>
+        </tr>
+        <tr>
+            <td>{{shoeData['release_date']}}</td>
+            <td>{{shoeData['colorway']}}</td>
+            <td>{{shoeData['retail_price']}}</td>
+            <td>{{shoeData['avg_sale_price']}}</td>
+            <td>{{premium}}</td>
+        </tr>
+    </table>
+</div>
+<div class="body" align="center">
+    <form action="/id/{{shoename}}" method="post" enctype="multipart/form-data">
+        <input type="submit" value="Add To Shoebox" name="post_button">
+        <input type="submit" value="Favorite" name="post_button">
+    </form>
+</div>
+<p>
+    {{message}}
+</p>
+
+
+{% endblock %}

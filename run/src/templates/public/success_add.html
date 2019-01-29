@@ -1,0 +1,45 @@
+{% extends "structure.html" %}
+{% block viewport %}
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="refresh" content="2;url=http://0.0.0.0:5000/2492/account" />
+</head>
+<style>
+    input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 2px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number], select {
+  width: 3%;
+  padding: 12px 20px;
+  margin: 8px 2px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+    input[type=submit] {
+  width: 25%;
+  background-color: #9653e8;
+  color: white;
+  padding: 14px 20px;
+  margin: 30px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #97eff1;
+}
+</style>
+    <div class="main" align="center">
+            SUCCESS YOU WILL BE REDIRECTED IN 3 SECONDS
+        <h3>{{ message }}</h3>
+    </div>
+    <p><a href="/">Home</a></p>
+    {% endblock %}

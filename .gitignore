@@ -1,0 +1,8 @@
+*.swp # Swap Files (e.g., buffers of files currently open in Nano)
+*.pyc # Object Code
+pycache # Object Code
+secret_key #Secret Key (i.e., file)
+instance #(i.e, directory)
+json
+bin
+lib

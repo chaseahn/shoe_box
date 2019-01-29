@@ -1,0 +1,143 @@
+{% extends "structure.html" %}
+{% block viewport %}
+<!DOCTYPE html>
+<style>
+    ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="cb"] {
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label::before {
+  content: "✓";
+  background-color: green;
+  transform: scale(1);
+}
+
+:checked+label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
+input[type=submit] {
+  width: 25%;
+  background-color: #9653e8;
+  color: white;
+  padding: 14px 20px;
+  margin: 30px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #97eff1;
+}
+</style>
+
+<div class="main" align="center">
+    <img type="image" src="{{ url_for('static', filename='preferences.png') }}" alt="Register" width="280" height="160">
+</div>
+
+<div class="body" align="center">
+    <img type="image" src="{{ url_for('static', filename='brands_icon.png') }}" alt="Nike" width=5% height=auto>
+</div>
+
+<div class="body" align="center">
+    <form action= "/{{username}}/pref" method="post" enctype="multipart/form-data">
+        <ul>
+            <li><input type="checkbox" id="cb1" name="nike" value="nke"/>
+            <label for="cb1"><img src="{{ url_for('static', filename='ds_nike.png') }}" width="200" height="160"/></label>
+            </li>
+            <li><input type="checkbox" id="cb2" name="adidas" value="ads"/>
+            <label for="cb2"><img src="{{ url_for('static', filename='ds_adidas.png') }}" width="200" height="160"/></label>
+            </li>
+            <li><input type="checkbox" id="cb3" name="jordan" value="jrd"/>
+            <label for="cb3"><img src="{{ url_for('static', filename='ds_jordan.png') }}" width="200" height="160"/></label>
+            </li>
+            <li><input type="checkbox" id="cb4" name="other" value="otb"/>
+            <label for="cb4"><img src="{{ url_for('static', filename='ds_other.png') }}" width="200" height="160"/></label>
+            </li>
+        </ul>
+        <div>
+            <img type="image" src="{{ url_for('static', filename='colors_icon.png') }}" alt="Nike" width=5% height=auto>
+        </div>
+        <ul>
+            <li><input type="checkbox" id="cb5" name="black" value="black"/>
+            <label for="cb5"><img type="image" src="{{ url_for('static', filename='color_black.png') }}" alt="Black" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb6" name="white" value="white"/>
+                <label for="cb6"><img type="image" src="{{ url_for('static', filename='color_white1.png') }}" alt="White" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb7" name="red" value="red"/>
+                <label for="cb7"><img type="image" src="{{ url_for('static', filename='color_red.png') }}" alt="Red" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb8" name="orange" value="orange"/>
+                <label for="cb8"><img type="image" src="{{ url_for('static', filename='color_orange.png') }}" alt="Orange" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb9" name="yellow" value="yellow"/>
+                <label for="cb9"><img type="image" src="{{ url_for('static', filename='color_yellow.png') }}" alt="Yellow" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb10" name="green" value="green"/>
+                <label for="cb10"><img type="image" src="{{ url_for('static', filename='color_green.png') }}" alt="Green" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb11" name="blue" value="blue"/>
+                <label for="cb11"><img type="image" src="{{ url_for('static', filename='color_blue.png') }}" alt="Blue" width="100" height="100"></label>
+            </li>
+            <li><input type="checkbox" id="cb12" name="purple" value="purple"/>
+                <label for="cb12"><img type="image" src="{{ url_for('static', filename='color_purple.png') }}" alt="Purple" width="100" height="100"></label>
+            </li>
+        </ul>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+    {% endblock %}
