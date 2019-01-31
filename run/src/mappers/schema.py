@@ -1,5 +1,6 @@
 import sqlite3
 
+
 def run(dbname='shoebox.db'):
 
     CON = sqlite3.connect(dbname)
@@ -78,6 +79,27 @@ def run(dbname='shoebox.db'):
         price_sold VARCHAR,
         user_pk INTEGER,
         FOREIGN KEY(user_pk) REFERENCES user(pk)
+    );""")
+
+    CUR.execute("""DROP TABLE IF EXISTS sneakers;""")
+    #search term history
+    CUR.execute("""CREATE TABLE sneakers(
+        pk INTEGER PRIMARY KEY AUTOINCREMENT,
+        brand VARCHAR, 
+        name VARCHAR,
+        colorway VARCHAR,
+        description VARCHAR,
+        image VARCHAR,
+        release_date VARCHAR,
+        retail_price INTEGER,
+        style VARCHAR,
+        ticker VARCHAR,
+        total_sales INTEGER,
+        url VARCHAR,
+        year_high INTEGER,
+        year_low INTEGER,
+        avg_sale_price INTEGER,
+        premium INTEGER
     );""")
 
     CON.commit()

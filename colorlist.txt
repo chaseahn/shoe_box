@@ -1,0 +1,5 @@
+['Black', 'White', 'Red', 'Grey', 'Core', 'Blue', 'Yellow', 'Pink', 'Orange', 'Green', 'Purple', 'Brown', 'Metallic', 'Gold', 'Silver', 'Orange', 'Dark', 'Varsity', 'Navy', 
+'Multi', 'Wolf', 'Cloud', 'Gum', 'Clear', 'Olive', 'Platinum', 'Crimson', 'Midnight', 'Bright', 'Solar', 'Summit', 
+'Volt', 'Obsidian', 'Cream', 'Night', 'Bone', 'Burgundy', 'Concord', 'Fire', 'Scarlet', 'Infrared', 'Cement', 'Beige', 'Carbon', 'Desert',
+'Wheat', 'Tan', 'Khaki', 'Crystal', 'Turquoise', 'Glow', 'Laser', 'Ice', 'Shock', 'Coral', 'Maroon', 'Blast', 'Emerald', 
+'Cobalt', 'Gray', 'Grape', 'Fuchsia', 'Flash', 'Neon', 'Matte', 'New','Indigo', 'Steel', 'Electric','Static',]

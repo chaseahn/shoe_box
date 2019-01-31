@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends "structure.html" %}
+{% block viewport %}
+
+<style>
+        .nl {
+        text-decoration:none;
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+          grid-gap: 1px;
+          background-color: white;
+          padding: 10px;
+          margin-left: 160px;
+        }
+        .grid-item {
+          background-color: rgba(255, 255, 255, 0.8);
+          border: 0.5px solid rgb(141, 33, 184);
+          padding: 10px;
+          font-size: 30px;
+          text-align: center;
+        }
+    </style>
+
+<div class="main" align="center">
+        <img type="image" src="{{ url_for('static', filename='results_txt.png') }}" alt="Register" width="280" height="70">
+</div>
+
+<div class="grid-container" style="grid-auto-flow: row;" align="center">
+        {% for shoe in shoe_list %}
+        {% set filename = shoe +'.jpg' %}
+        <div class="grid-item">
+            <a class="nl" href="/id/{{shoe}}">
+                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height="120" width = "150">
+            </a>
+            <div>
+                <font size="0.2" color="purple">{{shoe}}</font>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

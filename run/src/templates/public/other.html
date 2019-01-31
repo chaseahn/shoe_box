@@ -2,55 +2,181 @@
 {% extends "structure.html" %}
 {% block viewport %}
 
-<div class = "main" align="center">
-    <p>
-        <font size="2" color="green">[filter by]</font>
-    </p>
-</div>
-<form action="/otb" method="post" enctype="multipart/form-data">
-    <div class="body" align="center">
-            <font size="2" color="black">avg sale price</font>
-                <input type="radio" name='check' value="asp"/>
-            <font size="2" color="black">total sales</font>
-                <input type="radio" name='check' value="tts"/>
-            <font size="2" color="black">release date</font>
-                <input type="radio" name='check' value="rld"/>
-    </div>
-    <div class="body" align="center">
-            <font size="2" color="black">high</font>
-                <input type="radio" name='check2' value="high"/>
-            <font size="2" color="black">low</font>
-                <input type="radio" name='check2' value="low"/>
-                <font size="2" color="black">display</font>
-            <select name="num" method="get" action="/nke">
-                {% for num in display_nums %}
-                <option value= "{{num}}">{{num}}</option>"
-                {% endfor %}
-            </select>
-                <input name="post_button" type="submit" value="Filter">
-    </div>
-    <div class="body" align="center">
-        <input type="search_text" name="search_text" placeholder="Find Your Kicks"/>
-        <input name="post_button" type="submit" value="Search">
-    </div>
-    <div class="body" align="center">
-        <font size="2" color="red">{{ message }}</font>
-        <font size="2" color="green">{{ results }}</font>
-    </div>
-    <div class="body" align="center">
-        <input name="post_button" type="submit" value="Shuffle">
-    </div>
-</form>
+<style>
+        input[type=submit] {
+       width: 10%;
+       background-color: #9653e8;
+       color: white;
+       padding: 7px 10px;
+       margin: 10px 0;
+       margin-bottom: 0px;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+     }
+     input[type=submit]:hover {
+       background-color: #97eff1;
+     }
+</style>
+<style>
+    .nl {
+    text-decoration:none;
+    }
+    .box {
+    display: block;
+    position: relative;
+    width: 30%;
+    padding: 10px;
+    border: .2px solid rgb(170, 24, 214);
+    background-color: rgb(230, 230, 230);
+    z-index: 0;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+      grid-gap: 1px;
+      background-color: white;
+      padding: 10px;
+      margin-left: 160px;
+    }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 0.5px solid rgb(141, 33, 184); 
+      padding: 5px;
+      font-size: 30px;
+      text-align: center;
+    }
 
-<div class="body" align="center">
-    {% for shoe in shoe_list %}
-    {% set filename = shoe +'.jpg' %}
-        <div style="float: middle; display: inline-block;">
-            <a href="/id/{{shoe}}">
-                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="130" height="95">
-            </a>
-        </div>
-    {% endfor %}
+        ul {
+    list-style-type: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    }
+
+    li {
+    display: inline-block;
+    }
+
+    input[type="checkbox"][id^="cb"] {
+    display: none;
+    }
+
+    label {
+    border: 0px solid #fff;
+    padding: 5px;
+    display: block;
+    position: relative;
+    margin: 5px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
+    label::before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+    }
+
+    label img {
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+    }
+
+    :checked+label {
+    border-color: #ddd;
+    }
+
+    :checked+label::before {
+    content: "✓";
+    background-color: green;
+    transform: scale(1);
+    }
+
+    :checked+label img {
+    transform: scale(0.9);
+    box-shadow: 0 0 5px #333;
+    z-index: 1;
+    }
+</style>
+<img style="position:absolute; top: 55px; left: 320px;" src="{{ url_for('static', filename='ds_other.png') }}" width="200" height="160"/>
+<div class = "main" align="center">
+    <div class="box">
+        <form action="/otb" method="post" enctype="multipart/form-data">
+        <font>Sort By</font>
+        <select name="val" method="post" action="/otb">
+            {% for val in display_vals %}
+            <option value= "{{val}}">{{val}}</option>"
+            {% endfor %}
+        </select>
+        <font>Display</font>
+        <select name="num" method="post" action="/otb">
+            {% for num in display_nums %}
+            <option value= "{{num}}">{{num}}</option>"
+            {% endfor %}
+        </select>  
+        <ul>
+            <li><input type="checkbox" id="cb5" name="black" value="black"/>
+            <label for="cb5"><img type="image" src="{{ url_for('static', filename='color_black.png') }}" alt="Black" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb6" name="white" value="white"/>
+                <label for="cb6"><img type="image" src="{{ url_for('static', filename='color_white1.png') }}" alt="White" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb7" name="red" value="red"/>
+                <label for="cb7"><img type="image" src="{{ url_for('static', filename='color_red.png') }}" alt="Red" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb8" name="orange" value="orange"/>
+                <label for="cb8"><img type="image" src="{{ url_for('static', filename='color_orange.png') }}" alt="Orange" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb9" name="yellow" value="yellow"/>
+                <label for="cb9"><img type="image" src="{{ url_for('static', filename='color_yellow.png') }}" alt="Yellow" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb10" name="green" value="green"/>
+                <label for="cb10"><img type="image" src="{{ url_for('static', filename='color_green.png') }}" alt="Green" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb11" name="blue" value="blue"/>
+                <label for="cb11"><img type="image" src="{{ url_for('static', filename='color_blue.png') }}" alt="Blue" width="30" height="30"></label>
+            </li>
+            <li><input type="checkbox" id="cb12" name="purple" value="purple"/>
+                <label for="cb12"><img type="image" src="{{ url_for('static', filename='color_purple.png') }}" alt="Purple" width="30" height="30"></label>
+            </li>
+        </ul>
+    </div>
+        <input type="submit" value="Shuffle" name="post_button">
+        <input type="submit" value="Filter" name="post_button">
+    </form>
 </div>
+
+<div class="grid-container" style="grid-auto-flow: row;" align="center">
+        {% for shoe in shoe_list %}
+        {% set filename = shoe +'.jpg' %}
+        <div class="grid-item">
+            <a class="nl" href="/id/{{shoe}}">
+                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height="120" width = "150">
+            </a>
+            <div>
+                <font size="0.2" color="purple">{{shoe}}</font>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

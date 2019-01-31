@@ -13,6 +13,7 @@ from selenium import webdriver
 from random import randint
 
 from ..mappers.opencursor import OpenCursor
+from ..models.model import Sneaker
 
 path = 'run/src/json/total190120.json'
 
@@ -32,25 +33,19 @@ def tsplit(string, delimiters):
     return stack
 
 def color_list():
-    with open(path) as file:
-        data = json.load(file)
-        color_list = []
-        for key,value in data.items():
-            colorway = data[key]['colorway']
-            colors = colorway.split('/')
-            for color in colors:
-                if color not in color_list:
-                    color_list.append(color)
-                else:
-                    pass
-        print(color_list)
-        return color_list
+    sneaker = Sneaker()
+    colorlist = sneaker.get_color_list()
+    print(colorlist)
+
+
 
 def search_terms(string,brand):
-    relevanceList = []
-    shoes = get_shoes(brand)
+    relevanceListofOne, relevanceListofMany = [], []
+    sneaker = Sneaker() 
+    shoes = sneaker.get_shoes(brand)
+    single = True
     for shoe in shoes:
-        ignoreList = [ 'of', 'a', 'the' ]
+        ignoreList = [ 'of', 'a', 'the', 'adidas', 'nike', 'jordan' ]
         searchTerms = string.lower().split(' ')
         searchFor = shoe.lower().split(' ')
         x = 0
@@ -58,18 +53,24 @@ def search_terms(string,brand):
             if terms in ignoreList:
                 pass
             elif terms in searchFor:
-                    x += 1
+                x += 1
             else:
                 pass
         if x == 0:
             pass
+        elif x > 1:
+            single = False
+            relevanceListofMany.append((shoe,x))
         else:
-            relevanceList.append((shoe,x))
-
-    relevanceList = sorted(relevanceList, key=lambda x:x[1])[::-1]
-    relevanceList = [relevant[0] for relevant in relevanceList]
-        
-    return relevanceList
+            relevanceListofOne.append((shoe,x))
+    
+    if single:
+        relevanceListofOne = [relevant[0] for relevant in relevanceListofOne]
+        return relevanceListofOne
+    else:
+        relevanceListofMany = sorted(relevanceListofMany, key=lambda x:x[1])[::-1]
+        relevanceListofMany = [relevant[0] for relevant in relevanceListofMany]
+        return relevanceListofMany
 
 def date_to_unix(date):
     split = date.split("-")
@@ -93,28 +94,6 @@ def brander(brand):
         print('Brand not recognized. Try searching "Others"?')
         return False
 
-#TODO WORKS BUT ADD ALL FUNCTION
-def get_shoes(brand):
-    """ create list of specific brand """
-    brand_name = brander(brand)
-    if brand_name == 'all':
-        with open(path) as file:
-            data = json.load(file)
-            shoes = []
-            for key,value in data.items():
-                shoes.append((data[key]['name']))
-            return shoes
-    else:
-        with open(path) as file:
-            data = json.load(file)
-            shoes = []
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    shoes.append((data[key]['name']))
-                else:
-                    pass
-            return shoes
-
 def display_shoes(val,brand,disp_num):
     """ 
     disp_num = 50,100,200
@@ -122,7 +101,8 @@ def display_shoes(val,brand,disp_num):
     1) Default-Random 2) Most sales 3) avgsale (inv) 4) release date high & low
     """
     #GENERATE BRAND LIST OF ALL SHOES
-    shoe_list = get_shoes(brand)
+    sneaker = Sneaker() 
+    shoe_list = sneaker.get_shoes(brand)
     
     if val == None:
         rand_shoe_list = []
