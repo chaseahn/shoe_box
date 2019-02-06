@@ -7,3 +7,4 @@ json
 bin
 lib
 static
+*.db

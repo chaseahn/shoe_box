@@ -1,0 +1,56 @@
+set nowrap
+set smooth
+set tabsize 4
+set tabstospaces
+## Here is an example for Python.
+##
+syntax "Python" "\.py$"
+header "^#!.*/(env +)?python[-0-9._]*( |$)"
+
+## built-in objects
+color magenta "\<(None|self|True|False)\>"
+## built-in attributes
+color cyan "\<(__builtin__|__dict__|__methods__|__members__|__class__|__bases__|__import__|__name__|__doc__|__self__|__debug__)\>"
+## built-in functions
+color brightmagenta "\<(abs|append|apply|buffer|callable|chr|clear|close|closed|cmp|coerce|compile|complex|conjugate|copy|count|delattr|dir|divmod|eval|execfile|extend|fileno|filter|float|flush|get|getattr|g$
+## special method names
+color brightcyan "\<(__abs__|__add__|__and__|__call__|__cmp__|__coerce__|__complex__|__concat__|__contains__|__del__|__delattr__|__delitem__|__delslice__|__div__|__divmod__|__float__|__getattr__|__getitem__|$
+## exception classes
+# color brightred "\<(Exception|StandardError|ArithmeticError|LookupError|EnvironmentError|AssertionError|AttributeError|EOFError|FloatingPointError|IOError|ImportError|IndexError|KeyError|KeyboardInterrupt|$
+## types
+color brightmagenta "\<(NoneType|TypeType|IntType|LongType|FloatType|ComplexType|StringType|UnicodeType|BufferType|TupleType|ListType|DictType|FunctionType|LambdaType|CodeType|ClassType|UnboundMethodType|Ins$
+## definitions
+color brightmagenta "def [a-zA-Z_0-9]+"
+## keywords
+color red "\<(and|as|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|map|not|or|pass|print|raise|return|try|with|while|yield)\>"
+
+## decorators
+color green "@.*[(]"
+
+## operators
+color white "[.:;,+*|=!\%@]" "<" ">" "/" "-" "&"
+
+## parentheses
+color magenta "[(){}]" "\[" "\]"
+
+## numbers
+icolor cyan "\b(([1-9][0-9]+)|0+)\.[0-9]+j?\b" "\b([1-9][0-9]*[Lj]?)\b" "\b0o?[0-7]*L?\b" "\b0x[1-9a-f][0-9a-f]*L?\b" "\b0b[01]+\b"
+
+
+## strings
+color yellow "['][^']*[^\\][']" "[']{3}.*[^\\][']{3}"
+color yellow "["][^"]*[^\\]["]" "["]{3}.*[^\\]["]{3}"
+
+## comments
+color blue "#.*$"
+
+## block comments
+color green start=""""([^"]|$)" end=""""" start="'''([^']|$)" end="'''"
+#color cyan start=""""[^"]" end=""""" start="'''[^']" end="'''"
+#color cyan start="([[:space:]]"""|^""")" end=""""" start="'''[^']" end="'''"
+#color cyan start=""""" end=""""" start="'''" end="'''"
+#color cyan start="("""[^"]|[^"]""")" end="("""[^"]|[^"]""")" start="'''[^']" end="'''"
+#color cyan start="\"\"\"" end="\"\"\""
+
+## Trailing spaces
+color ,green "[[:space:]]+$"

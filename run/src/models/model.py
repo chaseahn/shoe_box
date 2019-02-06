@@ -383,13 +383,12 @@ class Sneaker:
         row                = dict(row)
         self.pk            = row.get('pk')
         self.brand	       = row.get('brand')
+        self.type          = row.get('type')
         self.name          = row.get('name')
         self.colorway      = row.get('colorway')
-        self.description   = row.get('description')
         self.image         = row.get('image')
         self.release_date  = row.get('release_date')
         self.retail_price  = row.get('retail_price')
-        self.style         = row.get('style')
         self.ticker        = row.get('ticker')
         self.total_sales   = row.get('total_sales')
         self.url           = row.get('url')
@@ -411,8 +410,8 @@ class Sneaker:
             self.row_set({})
     
     def get_shoes(self,brand):
-        brand = brand.lower()
-        if brand == 'all':
+        brand = brand.capitalize()
+        if brand == 'All':
             with OpenCursor() as cur:
                 SQL = """ SELECT * FROM sneakers; """
                 cur.execute(SQL,)
@@ -440,128 +439,129 @@ class Sneaker:
                     shoes = []
                     return []
 
+    #FIXME ADD TYPE FILTER
     def filter_by(self, brand, value, num, colorlist = []):
-        if num == 'All':
-           with OpenCursor() as cur:
-                SQL = """ SELECT * FROM sneakers WHERE brand = ?; """
-                val = (brand,)
-                cur.execute(SQL,val)
-                data = cur.fetchall()
-                num = len(data)
         if value == 'Valuable ↑':
             with OpenCursor() as cur:
-                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY premium DESC limit {}; """.format(num)
+                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY premium DESC; """
                 val = (brand,)
                 cur.execute(SQL,val)
                 data = cur.fetchall()
                 if data:
+
                     shoes = []
+
                     if colorlist == []:
                         for row in data:
-                            if row['premium'] is not None:
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            else:
                                 shoes.append(row['name'])
-                        return shoes
                     else:
-                        colored_shoes = []
-                        for row in data:
-                            colorway = tsplit(row['colorway'], ('/', '-', ' '))
-                            for color in colorlist:
-                                if color.capitalize() in colorway:
-                                    colored_shoes.append(row['name'])
-                        return colored_shoes
-                else:
-                    pass
-        elif value == 'Valuable ↓':
-            with OpenCursor() as cur:
-                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY premium ASC limit {}; """.format(num)
-                val = (brand,)
-                cur.execute(SQL,val)
-                data = cur.fetchall()
-                if data:
-                    shoes = []
-                    if colorlist == []:
-                        for row in data:
-                            if row['premium'] is not None:
-                                shoes.append(row['name'])
-                        return shoes
-                    else:
-                        colored_shoes = []
-                        for row in data:
-                            colorway = tsplit(row['colorway'], ('/', '-', ' '))
-                            for color in colorlist:
-                                if color.capitalize() in colorway and row['premium'] is not None:
-                                    colored_shoes.append(row['name'])
-                        return colored_shoes
-                else:
-                    pass
-        elif value == 'Price ↑':
-            with OpenCursor() as cur:
-                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY avg_sale_price DESC limit {}; """.format(num)
-                val = (brand,)
-                cur.execute(SQL,val)
-                data = cur.fetchall()
-                if data:
-                    shoes = []
-                    if colorlist == []:
-                        for row in data:
-                            if row['avg_sale_price'] != '--':
-                                shoes.append(row['name'])
-                        return shoes
-                    else:
-                        colored_shoes = []
                         for row in data:
                             colorway = tsplit(row['colorway'], ('/', '-', ' '))
                             for color in colorlist:
                                 if color.capitalize() in colorway and row['avg_sale_price'] != '--':
-                                    colored_shoes.append(row['name'])
-                        return colored_shoes
-                else:
-                    pass
-        elif value == 'Price ↓':
+                                    shoes.append(row['name'])
+
+                    return shoes[:int(num)]
+
+        elif value == 'Valuable ↓':
             with OpenCursor() as cur:
-                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY avg_sale_price ASC limit {}; """.format(num)
+                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY premium; """
                 val = (brand,)
                 cur.execute(SQL,val)
                 data = cur.fetchall()
                 if data:
+
                     shoes = []
+
                     if colorlist == []:
                         for row in data:
                             shoes.append(row['name'])
-                        return shoes
+    
                     else:
-                        colored_shoes = []
                         for row in data:
                             colorway = tsplit(row['colorway'], ('/', '-', ' '))
                             for color in colorlist:
                                 if color.capitalize() in colorway:
-                                    colored_shoes.append(row['name'])
-                        return colored_shoes
-                else:
-                    pass
-        elif value == 'Sales ↑':
+                                    shoes.append(row['name'])
+
+                    return shoes[:int(num)]
+
+        elif value == 'Price ↑':
             with OpenCursor() as cur:
-                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY total_sales DESC limit {}; """.format(num)
+                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY avg_sale_price DESC; """
                 val = (brand,)
                 cur.execute(SQL,val)
                 data = cur.fetchall()
                 if data:
+
                     shoes = []
+
                     if colorlist == []:
                         for row in data:
-                            if row['total_sales'] != '--':
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            else:
                                 shoes.append(row['name'])
-                        return shoes
                     else:
-                        colored_shoes = []
                         for row in data:
                             colorway = tsplit(row['colorway'], ('/', '-', ' '))
                             for color in colorlist:
-                                if color.capitalize() in colorway and row['total_sales'] != '--':
-                                    colored_shoes.append(row['name'])
-                        return colored_shoes
-                else:
-                    pass
+                                if color.capitalize() in colorway and row['avg_sale_price'] != '--':
+                                    shoes.append(row['name'])
+
+                    return shoes[:int(num)]
+
+        elif value == 'Price ↓':
+            with OpenCursor() as cur:
+                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY avg_sale_price ASC; """
+                val = (brand,)
+                cur.execute(SQL,val)
+                data = cur.fetchall()
+                if data:
+
+                    shoes = []
+
+                    if colorlist == []:
+                        for row in data:
+                            shoes.append(row['name'])
+    
+                    else:
+                        for row in data:
+                            colorway = tsplit(row['colorway'], ('/', '-', ' '))
+                            for color in colorlist:
+                                if color.capitalize() in colorway:
+                                    shoes.append(row['name'])
+
+                    return shoes[:int(num)]
+
+        elif value == 'Sales ↑':
+            with OpenCursor() as cur:
+                SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY total_sales DESC; """
+                val = (brand,)
+                cur.execute(SQL,val)
+                data = cur.fetchall()
+                if data:
+
+                    shoes = []
+
+                    if colorlist == []:
+                        for row in data:
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            else:
+                                shoes.append(row['name'])
+                    else:
+                        for row in data:
+                            colorway = tsplit(row['colorway'], ('/', '-', ' '))
+                            for color in colorlist:
+                                if color.capitalize() in colorway and row['avg_sale_price'] != '--':
+                                    shoes.append(row['name'])
+
+                    return shoes[:int(num)]
+
         elif value == 'Sales ↓':
             with OpenCursor() as cur:
                 SQL = """ SELECT * FROM sneakers WHERE brand = ? ORDER BY total_sales ASC limit {}; """.format(num)
@@ -569,22 +569,22 @@ class Sneaker:
                 cur.execute(SQL,val)
                 data = cur.fetchall()
                 if data:
+
                     shoes = []
+
                     if colorlist == []:
                         for row in data:
-                            if row['total_sales'] != '--':
-                                shoes.append(row['name'])
-                        return shoes
+                            shoes.append(row['name'])
+    
                     else:
-                        colored_shoes = []
                         for row in data:
                             colorway = tsplit(row['colorway'], ('/', '-', ' '))
                             for color in colorlist:
-                                if color.capitalize() in colorway and row['total_sales'] != '--':
-                                    colored_shoes.append(row['name'])
-                        return colored_shoes
-                else:
-                    pass
+                                if color.capitalize() in colorway:
+                                    shoes.append(row['name'])
+
+                    return shoes[:int(num)]
+
         else:
             with OpenCursor() as cur:
                 SQL = """ SELECT * FROM sneakers WHERE brand = ?; """
@@ -674,16 +674,16 @@ class Sneaker:
         if self:
             with OpenCursor() as cur:
                 SQL = """ UPDATE sneakers SET 
-                    brand=?, name=?, colorway=?, description=?, image=?, release_date=?,
-                    retail_price=?, style=?, ticker=?, total_sales=?, url=?, year_high=?,
+                    brand=?, type=?, name=?, colorway=?, image=?, release_date=?,
+                    retail_price=?, ticker=?, total_sales=?, url=?, year_high=?,
                     year_low=?, avg_sale_price=?, premium=? WHERE name=?; """
-                val = (self.brand, self.name, self.colorway, self.description, self.image, self.release_date, self.retail_price, self.style, self.ticker, self.total_sales, self.url, self.year_high, self.year_low, self.avg_sale_price, self.premium, name)
+                val = (self.brand, self.type, self.name, self.colorway, self.image, self.release_date, self.retail_price, self.ticker, self.total_sales, self.url, self.year_high, self.year_low, self.avg_sale_price, self.premium, name)
                 cur.execute(SQL, val)
         else:
             with OpenCursor() as cur:
                 SQL = """ INSERT INTO sneakers (
-                    brand, name, colorway, description, image, release_date, retail_price, style, ticker, total_sales, url, year_high, year_low, avg_sale_price, premium)
+                    brand, type, name, colorway, image, release_date, retail_price, ticker, total_sales, url, year_high, year_low, avg_sale_price, premium)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); """
-                val = (self.brand, self.name, self.colorway, self.description, self.image, self.release_date, self.retail_price, self.style, self.ticker, self.total_sales, self.url, self.year_high, self.year_low, self.avg_sale_price, self.premium)
+                val = (self.brand, self.name, self.colorway, self.image, self.release_date, self.retail_price, self.style, self.ticker, self.total_sales, self.url, self.year_high, self.year_low, self.avg_sale_price, self.premium)
                 cur.execute(SQL, val)
                 self.pk = cur.lastrowid

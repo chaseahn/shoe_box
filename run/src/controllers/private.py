@@ -20,7 +20,7 @@ def account():
             print(shoebox)
             return render_template('private/account.html',message='Welcome '+session['username'],favList=favList,shoebox=shoebox)
         except KeyError:
-            return render_template('private/account.html',message='Login to view your account!')
+            return redirect('/register')
     elif request.method == 'POST':
         pass
     else:

@@ -11,7 +11,7 @@ from .controllers.public  import elekid as public_buzz
 from .controllers.private import elekid as private_buzz
 from .models.model import User,ShoeView,Sneaker
 
-from .extentions.loaders import display_shoes,date_to_unix,brander,shoeValues,search_terms,color_list
+from .extentions.loaders import display_rand_shoes,date_to_unix,brander,shoeValues,search_terms,color_list
 
 UPLOAD_FOLDER = '/Users/ahn.ch/Projects/shoe_data/run/src/static'
 
@@ -94,9 +94,9 @@ def logout():
 
 @electabuzz.route('/nke',methods=['GET','POST'])
 def nike():
-    brand = 'nike'
+    brand = 'Nike'
     if request.method == 'GET':
-        shoe_list = display_shoes(None, brand, '24')
+        shoe_list = display_rand_shoes(brand,24)
         display_nums = disp_nums()
         display_vals = disp_vals()
         return render_template('public/nike.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)
@@ -139,9 +139,9 @@ def nike():
 
 @electabuzz.route('/ads',methods=['GET','POST'])
 def adidas():
-    brand = 'adidas'
+    brand = 'Adidas'
     if request.method == 'GET':
-        shoe_list = display_shoes(None, brand, '50')
+        shoe_list = display_rand_shoes(brand,24)
         display_nums = disp_nums()
         display_vals = disp_vals()
         return render_template('public/adidas.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)
@@ -152,7 +152,9 @@ def adidas():
             display_nums = disp_nums()
 
             value = request.form['val']
+            print(value)
             num = request.form['num']
+            print(num)
 
             black  = request.form.get('black')
             white  = request.form.get('white')
@@ -172,6 +174,7 @@ def adidas():
 
             sneaker = Sneaker()
             shoe_list = sneaker.filter_by(brand, value, num, colorlist=colorList)
+            print(shoe_list)
 
             return render_template('public/adidas.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)
         elif request.form['post_button'] == 'Shuffle':
@@ -183,9 +186,9 @@ def adidas():
 
 @electabuzz.route('/jrd',methods=['GET','POST'])
 def jordan():
-    brand = 'jordan'
+    brand = 'Jordan'
     if request.method == 'GET':
-        shoe_list = display_shoes(None, brand, '50')
+        shoe_list = display_rand_shoes(brand,24)
         display_nums = disp_nums()
         display_vals = disp_vals()
         return render_template('public/jordan.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)
@@ -227,9 +230,9 @@ def jordan():
 
 @electabuzz.route('/otb',methods=['GET','POST'])
 def other():
-    brand = 'other'
+    brand = 'Other'
     if request.method == 'GET':
-        shoe_list = display_shoes(None, brand, '50')
+        shoe_list = display_rand_shoes(brand,24)
         display_nums = disp_nums()
         display_vals = disp_vals()
         return render_template('public/other.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)

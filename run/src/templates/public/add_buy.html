@@ -36,7 +36,7 @@ input[type=submit]:hover {
 </style>
 
 <div class="main" align="center">
-    <img type="image" src="{{ url_for('static', filename='adding_txt.png') }}" alt="Register" width="280" height="70">
+    <img type="image" src="{{ url_for('static', filename='adding_text.png') }}" alt="Register" width="280" height="70">
 </div>
 <div class="body" align="center">
     {% set filename = shoeName +'.jpg' %}
@@ -48,10 +48,10 @@ input[type=submit]:hover {
 <div class="body" align="center">
     <div>
         <a href="/add-buy/{{shoeName}}">
-            <img type="image" src="{{ url_for('static', filename='add_buy.png') }}" alt="Register" width="100" height="35">
+            <img type="image" src="{{ url_for('static', filename='buy_button.png') }}" alt="Register" width="100" height="35">
         </a>
         <a href="/add-sell/{{shoeName}}">
-            <img type="image" src="{{ url_for('static', filename='add_sell.png') }}" alt="Register" width="100" height="35">
+            <img type="image" src="{{ url_for('static', filename='sell_button.png') }}" alt="Register" width="100" height="35">
         </a>
     </div>
     <div>

@@ -86,13 +86,12 @@ def update_shoe(name):
         premium = price_premium(sneaker.retail_price,new_avgSalePrice)
 
         sneaker.brand	       = sneaker.brand	
+        sneaker.type           = sneaker.type
         sneaker.name           = sneaker.name
         sneaker.colorway       = sneaker.colorway 	
-        sneaker.description    = sneaker.description 
         sneaker.image          = sneaker.image  
         sneaker.release_date   = sneaker.release_date 
         sneaker.retail_price   = sneaker.retail_price
-        sneaker.style          = sneaker.style 
         sneaker.ticker         = sneaker.ticker 
         sneaker.total_sales    = total_sales
         sneaker.url            = sneaker.url 

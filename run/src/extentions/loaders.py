@@ -94,155 +94,26 @@ def brander(brand):
         print('Brand not recognized. Try searching "Others"?')
         return False
 
-def display_shoes(val,brand,disp_num):
-    """ 
-    disp_num = 50,100,200
-    vals are sorting options
-    1) Default-Random 2) Most sales 3) avgsale (inv) 4) release date high & low
-    """
-    #GENERATE BRAND LIST OF ALL SHOES
+def display_rand_shoes(brand,disp_num):
+
     sneaker = Sneaker() 
     shoe_list = sneaker.get_shoes(brand)
     
-    if val == None:
-        rand_shoe_list = []
-        x = 0
-        while x < int(disp_num):
-            i = random.randint(1,len(shoe_list))
-            try:
-                if shoe_list[i] not in rand_shoe_list:
-                    rand_shoe_list.append(shoe_list[i])
-                    x += 1
-                else:
-                    pass
-            except IndexError:
+    rand_shoe_list = []
+    x = 0
+    while x < int(disp_num):
+        i = random.randint(1,len(shoe_list))
+        try:
+            if shoe_list[i] not in rand_shoe_list:
+                rand_shoe_list.append(shoe_list[i])
+                x += 1
+            else:
                 pass
-        """ GENERATE RANDOM LIST OF SHOE NAMES """
-        return rand_shoe_list
-    elif val == 'total_sales_high':
-        brand_name = brander(brand)
-        with open(path) as file:
-            data = json.load(file)
-            sales_list = []
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    if data[key]['total_sales'] == '--':
-                        sales_list.append((key,int('0')))
-                    else:
-                        sales_list.append((key,int(data[key]['total_sales'])))
-            ordered_list = sorted(sales_list, key=lambda x:x[1])
-            osl_r = ordered_list[::-1]
-            x = 0
-            display_list = []
-            while x < int(disp_num):
-                key = osl_r[x][0]
-                display_list.append(data[key]['name'])
-                x+=1
-            return display_list
-    elif val == 'total_sales_low':
-        brand_name = brander(brand)
-        with open(path) as file:
-            data = json.load(file)
-            sales_list = []
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    if data[key]['total_sales'] == '--':
-                        pass
-                    else:
-                        sales_list.append((key,int(data[key]['total_sales'])))
-            ordered_list = sorted(sales_list, key=lambda x:x[1])
-            x = 0
-            display_list = []
-            while x < int(disp_num):
-                key = ordered_list[x][0]
-                display_list.append(data[key]['name'])
-                x+=1
-            return display_list
-    elif val == 'avg_sale_price_high':
-        brand_name = brander(brand)
-        with open(path) as file:
-            data = json.load(file)
-            sales_list = []
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    if data[key]['avg_sale_price'] == '--':
-                        sales_list.append((key,int('0')))
-                    else:
-                        price = data[key]['avg_sale_price'].replace(',','').split('$')[1]
-                        sales_list.append((key,int(price)))
-            ordered_list = sorted(sales_list, key=lambda x:x[1])
-            osl_r = ordered_list[::-1]
-            x = 0
-            display_list = []
-            while x < int(disp_num):
-                key = osl_r[x][0]
-                display_list.append(data[key]['name'])
-                x+=1
-            return display_list
-    elif val == 'release_date_high':
-        brand_name = brander(brand)
-        with open(path) as file:
-            data = json.load(file)
-            sales_list = []
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    if data[key]['release_date'] == '--':
-                        sales_list.append((key,'NO DATE'))
-                    else:
-                        time = date_to_unix(data[key]['release_date'].strip())
-                        sales_list.append((key,time))
-            ordered_list = sorted(sales_list, key=lambda x:x[1])
-            osl_r = ordered_list[::-1]
-            x = 0
-            display_list = []
-            while x < int(disp_num):
-                key = osl_r[x][0]
-                display_list.append(data[key]['name'])
-                x+=1
-            return display_list
-    elif val == 'avg_sale_price_low':
-        brand_name = brander(brand)
-        with open(path) as file:
-            data = json.load(file)
-            sales_list = []
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    if data[key]['avg_sale_price'] == '--':
-                        pass
-                    else:
-                        price = data[key]['avg_sale_price'].replace(',','').split('$')[1]
-                        sales_list.append((key,int(price)))
-            ordered_list = sorted(sales_list, key=lambda x:x[1])
-            x = 0
-            display_list = []
-            while x < int(disp_num):
-                key = ordered_list[x][0]
-                display_list.append(data[key]['name'])
-                x+=1
-            return display_list
-    elif val == 'release_date_low':
-        brand_name = brander(brand)
-        with open(path) as file:
-            data = json.load(file)
-            sales_list = []    
-            for key,value in data.items():
-                if key.split('-')[0] == brand_name:
-                    if data[key]['release_date'] == '--':
-                        sales_list.append((key,'NO DATE'))
-                    else:
-                        time = date_to_unix(data[key]['release_date'].strip())
-                        sales_list.append((key,time))
-            ordered_list = sorted(sales_list, key=lambda x:x[1])
-
-            x = 0
-            display_list = []
-            while x < int(disp_num):
-                key = ordered_list[x][0]
-                display_list.append(data[key]['name'])
-                x+=1
-            return display_list
-    else:
-        pass
+        except IndexError:
+            pass
+    """ GENERATE RANDOM LIST OF SHOE NAMES """
+    return rand_shoe_list
+    
 
 def shoeValues(list,val,par):
     
