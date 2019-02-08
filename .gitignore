@@ -8,3 +8,4 @@ bin
 lib
 static
 *.db
+*.csv
