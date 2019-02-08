@@ -1,65 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>{{ title }}</title>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
-</head>
+<style>
+    * {box-sizing: border-box;}
+    
+    body { 
+      margin: 0;
+      font-family: prohibition, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      background-color: #111111
+    }
+    
+    .header {
+      overflow: hidden;
+      background-color: #43FF26;
+      padding: 0px 0px;
+      position: fixed; 
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      box-shadow: -5px -5px 20px grey;
+    }
+    
+    .header a {
+      float: left;
+      color: #111111;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
 
-<body>
-  <center>
-    <h1>{{ title }}</h1>
+</style>
+<style>
+    .main {
+      margin-top: 28px;
+    }
 
-    <canvas id="chart" width="600" height="400"></canvas>
-    <script>
-      // bar chart data
-      var barData = {
-        labels : [
-          {% for item in labels %}
-            "{{ item }}",
-          {% endfor %}
-        ],
-        datasets : [{
-          fillColor: "rgba(151,187,205,0.2)",
-          strokeColor: "rgba(151,187,205,1)",
-          pointColor: "rgba(151,187,205,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(151,187,205,1)",
-          bezierCurve : false,
-          data : [
-	    {% for item in values %}
-              {{ item }},
-            {% endfor %}]
-          }
-	]
-      }
-      Chart.defaults.global.animationSteps = 50;
-      Chart.defaults.global.tooltipYPadding = 16;
-      Chart.defaults.global.tooltipCornerRadius = 0;
-      Chart.defaults.global.tooltipTitleFontStyle = "normal";
-      Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
-      Chart.defaults.global.animationEasing = "easeOutBounce";
-      Chart.defaults.global.responsive = false;
-      Chart.defaults.global.scaleLineColor = "black";
-      Chart.defaults.global.scaleFontSize = 16;
-      // get bar chart canvas
-      var mychart = document.getElementById("chart").getContext("2d");
-      steps = 10
-      max = {{ max }}
-      // draw bar chart
-      var LineChartDemo = new Chart(mychart).Line(barData, {
-        scaleOverride: true,
-        scaleSteps: steps,
-        scaleStepWidth: Math.ceil(max / steps),
-        scaleStartValue: 0,
-        scaleShowVerticalLines: true,
-        scaleShowGridLines : true,
-        barShowStroke : true,
-        scaleShowLabels: true,
-        bezierCurve: false,
-      });
-    </script>
-  </center>
-</body>
-</html>
+</style>
+<div class="header">
+    <a href="/" class="logo">D A T A   by   S H O E B O X</a>
+    </div>
+</div>
+
+<div class="main" align="center">
+  <iframe width="800" height="720" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/50.embed"></iframe>
+  <iframe width="800" height="720" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/33.embed"></iframe>
+
+</div>
+<div align="center">
+  <iframe width="800" height="720" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/49.embed"></iframe>
+  <iframe width="800" height="720" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/29.embed"></iframe>
+</div>
+<div align="center">
+    <iframe width="400" height="350" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/36.embed"></iframe>
+    <iframe width="400" height="350" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/39.embed"></iframe>
+    <iframe width="400" height="350" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/42.embed"></iframe>
+    <iframe width="400" height="350" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/45.embed"></iframe>
+</div>
+<div align="center">
+    <iframe width="1600" height="700" frameborder="0" scrolling="no" src="//plot.ly/~ChaseAhn/53.embed"></iframe>
+</div>

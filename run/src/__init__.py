@@ -3,9 +3,12 @@
 
 import os
 import time
+import sqlite3
 
 from flask import Flask, render_template, request, url_for, redirect,session
+from werkzeug.wsgi import DispatcherMiddleware
 from werkzeug.utils import secure_filename
+
 
 from .controllers.public  import elekid as public_buzz
 from .controllers.private import elekid as private_buzz
@@ -16,11 +19,13 @@ from .extentions.loaders import display_rand_shoes,date_to_unix,brander,shoeValu
 UPLOAD_FOLDER = '/Users/ahn.ch/Projects/shoe_data/run/src/static'
 
 electabuzz = Flask(__name__)
+
 electabuzz.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 electabuzz.secret_key = 'SUPER-DUPER-SECRET'
 
 electabuzz.register_blueprint(public_buzz)
 electabuzz.register_blueprint(private_buzz)
+
 
 def ages():
     age = []
@@ -401,26 +406,15 @@ def reccomend():
     else:
         pass
 
-@electabuzz.route('/chart',methods=['GET','POST'])
-def chart():
+@electabuzz.route('/chartzard',methods=['GET','POST'])
+def data_visualization():
     if request.method == 'GET':
-        labels = [
-        'JAN', 'FEB', 'MAR', 'APR',
-        'MAY', 'JUN', 'JUL', 'AUG',
-        'SEP', 'OCT', 'NOV', 'DEC'
-        ]
-        values = [
-            967.67, 1190.89, 1079.75, 1349.19,
-            2328.91, 2504.28, 2873.83, 4764.87,
-            4349.29, 6458.30, 9907, 16297
-        ]
-        line_labels=labels
-        line_values=values
-        return render_template('public/chart.html',title='Bitcoin Monthly Price in USD', max=17000, labels=line_labels, values=line_values)
+        return render_template('public/chart.html')
     elif request.method == "POST":
         pass
     else:
         pass
+
 # @electabuzz.errorhandler(404)
 # def not_found(error):
 #     return render_template('public/404.html')

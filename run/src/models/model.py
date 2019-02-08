@@ -133,14 +133,20 @@ class User:
             key=0
             for rows in row:
 
+                sneaker = Sneaker(name=rows['shoename'])
+                value = float(sneaker.avg_sale_price)
+
                 shoebox[key] = {
                     'shoename': rows['shoename'],
+                    'ticker': rows['ticker'],
                     'type': rows['type'],
                     'date': rows['date'],
                     'price_bought': rows['price_bought'],
                     'price_sold': rows['price_sold'],
+                    'return': round(((value-float(rows['price_bought']))/value),2),
                     'pk': rows['pk']
                 }
+                
                 key+=1
             return shoebox
         else:
@@ -167,10 +173,13 @@ class User:
         userPref.save()
     
     def add_to_box(self,type,shoename,date,price_bought,pk,price_sold=''):
-        print(pk)
+
+        sneaker = Sneaker(name=shoename)
+
         if type == 'Buy':
             box = ShoeBox()
             box.shoename = shoename
+            box.ticker = sneaker.ticker
             box.type = 'BUY'
             box.date = date
             box.price_bought = price_bought
@@ -180,6 +189,7 @@ class User:
         else:
             box = ShoeBox()
             box.shoename = shoename
+            box.ticker = sneaker.ticker
             box.type = 'SELL'
             box.date = date
             box.price_bought = price_bought
@@ -332,6 +342,7 @@ class ShoeBox:
         row               = dict(row)
         self.pk           = row.get('pk')
         self.shoename     = row.get('shoename')
+        self.ticker       = row.get('ticker')
         self.type         = row.get('type')
         self.date         = row.get('date')
         self.price_bought = row.get('price_bought')
@@ -345,16 +356,16 @@ class ShoeBox:
         if self:
             with OpenCursor() as cur:
                 SQL = """ UPDATE shoebox SET 
-                    shoename=?, type=?, date=?, price_bought=?, price_sold=?, user_pk=?
+                    shoename=?, ticker=?, type=?, date=?, price_bought=?, price_sold=?, user_pk=?
                     WHERE shoename=?; """
-                val = (self.shoename, self.type, self.date, self.price_bought, self.price_sold, self.user_pk)
+                val = (self.shoename, self.ticker, self.type, self.date, self.price_bought, self.price_sold, self.user_pk)
                 cur.execute(SQL, val)
         else:
             with OpenCursor() as cur:
                 SQL = """ INSERT INTO shoebox (
-                    shoename, type, date, price_bought, price_sold, user_pk)
-                    VALUES (?, ?, ?, ?, ?, ?); """
-                val = (self.shoename, self.type, self.date, self.price_bought, self.price_sold, self.user_pk)
+                    shoename, ticker, type, date, price_bought, price_sold, user_pk)
+                    VALUES (?, ?, ?, ?, ?, ?, ?); """
+                val = (self.shoename, self.ticker, self.type, self.date, self.price_bought, self.price_sold, self.user_pk)
                 cur.execute(SQL, val)
                 self.pk = cur.lastrowid
 
@@ -380,20 +391,20 @@ class Sneaker:
         sleep(randint(10,10000)/10000)
 
     def row_set(self,row={}):
-        row                = dict(row)
-        self.pk            = row.get('pk')
-        self.brand	       = row.get('brand')
-        self.type          = row.get('type')
-        self.name          = row.get('name')
-        self.colorway      = row.get('colorway')
-        self.image         = row.get('image')
-        self.release_date  = row.get('release_date')
-        self.retail_price  = row.get('retail_price')
-        self.ticker        = row.get('ticker')
-        self.total_sales   = row.get('total_sales')
-        self.url           = row.get('url')
-        self.year_high     = row.get('year_high')
-        self.year_low      = row.get('year_low')
+        row                 = dict(row)
+        self.pk             = row.get('pk')
+        self.brand	        = row.get('brand')
+        self.type           = row.get('type')
+        self.name           = row.get('name')
+        self.colorway       = row.get('colorway')
+        self.image          = row.get('image')
+        self.release_date   = row.get('release_date')
+        self.retail_price   = row.get('retail_price')
+        self.ticker         = row.get('ticker')
+        self.total_sales    = row.get('total_sales')
+        self.url            = row.get('url')
+        self.year_high      = row.get('year_high')
+        self.year_low       = row.get('year_low')
         self.avg_sale_price = row.get('avg_sale_price')
         self.premium        = row.get('premium')
 
@@ -657,9 +668,35 @@ class Sneaker:
                 total = sum(sales)
                 return total
     
+    def get_total_sales_by_brand(self, brand):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM sneakers WHERE brand='{}'; """.format(brand)
+            cur.execute(SQL,)
+            data = cur.fetchall()
+            if data:
+                sales = []
+                for row in data:
+                    if row['total_sales'] != '--':
+                        sales.append(row['total_sales'])
+                total = sum(sales)
+                return total
+    
     def get_total_value(self):
         with OpenCursor() as cur:
             SQL = """ SELECT * FROM sneakers; """
+            cur.execute(SQL,)
+            data = cur.fetchall()
+            if data:
+                sales = []
+                for row in data:
+                    if row['total_sales'] != '--' and row['avg_sale_price'] != '--':
+                        sales.append(row['total_sales']*row['avg_sale_price'])
+                total = sum(sales)
+                return total
+    
+    def get_total_value_by_brand(self, brand):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM sneakers WHERE brand='{}'; """.format(brand)
             cur.execute(SQL,)
             data = cur.fetchall()
             if data:

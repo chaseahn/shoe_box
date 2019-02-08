@@ -73,6 +73,7 @@ def run(dbname='shoebox.db'):
     CUR.execute("""CREATE TABLE shoebox(
         pk INTEGER PRIMARY KEY AUTOINCREMENT,
         shoename VARCHAR,
+        ticker VARCHAR,
         type VARCHAR,
         date INTEGER,
         price_bought VARCHAR,

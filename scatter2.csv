@@ -1,0 +1,656 @@
+brand, name, retail_price, total_sales, avg_sale_price
+Adidas, adidas Human Race NMD Pharrell Pale Nude, 240, 1317, 381
+Jordan, Jordan 1 Mid Pine Green, 110, 1444, 136
+Nike, Air Max 270 Dusty Cactus, 150, 1489, 172
+Nike, LeBron 15 Orange Box, 200, 753, 277
+Jordan, Jordan 6 Retro Gatorade Like Mike White, 190, 1488, 150
+Nike, Air VaporMax 97 Silver Bullet, 190, 1619, 196
+Nike, Air VaporMax Plus Betrue (2018), 190, 689, 273
+Adidas, adidas NMD Hu Pharrell Solar Pack Red, 250, 2832, 293
+Jordan, Jordan 8 Retro Tinker Air Raid, 190, 1265, 164
+Other, Converse One Star Ox Tyler the Creator Golf Le Fleur Light Blue Pink, 100, 527, 140
+Nike, Air Max 97 Silver Black, 180, 522, 144
+Jordan, Jordan 6 Retro Flight Nostalgia, 190, 780, 146
+Nike, LeBron 16 I Promise, 185, 665, 211
+Adidas, adidas NMD R1 Japan Triple Black, 180, 1482, 264
+Adidas, adidas Ultra Boost 1.0 Multi-Color Toe White, 200, 1058, 140
+Jordan, Jordan 1 Retro High Gatorade Orange Peel, 175, 1257, 109
+Nike, Air Foamposite Pro Sequoia, 230, 972, 163
+Adidas, adidas Ultra Boost 4.0 Cookies & Cream 2.0, 180, 757, 143
+Adidas, adidas Ultra Boost 4.0 Cookies and Cream, 200, 3167, 232
+Adidas, adidas Yeezy 500 Salt, 200, 11219, 268
+Adidas, adidas Ultra Boost 3.0 Triple White, 180, 1043, 163
+Adidas, adidas Ultra Boost 2.0 White Reflective, 200, 879, 166
+Jordan, Jordan 11 Retro Platinum Tint, 220, 4716, 200
+Adidas, adidas NMD Hu Pharrell Solar Pack Mother, 250, 3049, 251
+Jordan, Jordan 1 Retro High Guava Ice, 160, 1016, 111
+Jordan, Jordan 3 Retro Sport Blue, 170, 707, 205
+Jordan, Jordan 1 Retro High Homage To Home Chicago (Numbered), 160, 1076, 764
+Nike, Air Max 98 Tidal Wave, 160, 1163, 182
+Jordan, Jordan 4 Retro Hot Punch (W), 190, 618, 170
+Nike, Air VaporMax 97 Japan, 190, 1289, 177
+Adidas, adidas Ultra Boost Clima Parley White Blue, 200, 767, 119
+Adidas, adidas Pharrell NMD HU China Pack Passion (Red), 250, 686, 445
+Nike, Air Force 270 Phantom, 160, 628, 200
+Nike, Air Force 1 Low Swoosh Pack All-Star 2018 (Sail), 110, 990, 183
+Jordan, Jordan 1 Retro High Shadow (2018), 160, 25973, 211
+Nike, Air Max 97 Silver White, 180, 778, 138
+Adidas, adidas Ultra Boost 4.0 Legend Ink, 180, 510, 141
+Adidas, adidas NMD XR1 OG Black, 150, 1719, 151
+Nike, Air Max 97 Pull Tab Obsidian White, 170, 740, 168
+Nike, LeBron Icon John Elliott White, 250, 1321, 318
+Adidas, adidas Yeezy Boost 350 V2 Black Red, 220, 2718, 808
+Nike, Air Max 98 Gundam (2018), 160, 1565, 280
+Jordan, Jordan 8 Retro OVO White, 225, 2161, 288
+Jordan, Jordan 1 Retro Reverse Shattered Backboard, 160, 662, 477
+Jordan, Jordan Legacy 312 Tech Challenge 2 Hot Lava, 160, 943, 169
+Adidas, adidas Yeezy Boost 350 V2 Cream-Triple White, 220, 33059, 276
+Jordan, Jordan 5 Retro Metallic White (2015), 190, 531, 188
+Jordan, Jordan 11 Retro Space Jam 2016 (GS), 170, 657, 209
+Jordan, Jordan 8 Retro OVO Black, 225, 2081, 275
+Jordan, Jordan 11 Retro Low Georgetown, 170, 573, 229
+Jordan, Jordan 1 Mid Pink Foam (GS), 90, 702, 106
+Jordan, Jordan 4 Retro Alternate 89, 190, 753, 202
+Nike, Kyrie 4 Lucky Charms, 120, 3003, 200
+Jordan, Jordan 4 Retro Sand 2017 (GS), 140, 631, 112
+Jordan, Jordan 11 Retro Playoffs (2012), 180, 1191, 435
+Jordan, Jordan 14 Retro Desert Sand, 190, 786, 162
+Nike, Nike Blazer Mid Off-White Wolf Grey Serena "Queen", 130, 1167, 796
+Adidas, adidas Ultra Boost 4.0 Show Your Stripes Cloud White, 180, 879, 131
+Adidas, adidas NMD R1 Sashiko Black, 170, 776, 105
+Nike, Kyrie 5 Concepts Ikhet, 140, 2113, 198
+Nike, Air VaporMax Plus Wolf Grey Black, 190, 529, 183
+Nike, Air More Uptempo Flax, 185, 769, 118
+Jordan, Jordan 8 Retro South Beach, 190, 705, 169
+Other, Converse Chuck Taylor All-Star 70s Hi Comme des Garcons PLAY White, 125, 1863, 144
+Jordan, Jordan 1 Retro High OG Sail, 160, 1287, 163
+Adidas, adidas Ultra Boost 5th Anniversary Black, 220, 1890, 161
+Nike, Air Force 1 Low Utility White Black, 100, 1345, 127
+Nike, Air Force 1 Low Off-White Volt (TD), 65, 719, 149
+Nike, Air Force 1 High Just Don (AF100), 200, 512, 178
+Nike, Air VaporMax Off-White Black, 250, 5198, 627
+Nike, Air Force 1 Mid Supreme NBA Black, 165, 4506, 230
+Jordan, Jordan 1 Retro High Spider-Man Origin Story (GS), 120, 7819, 215
+Nike, Kyrie 4 Confetti, 120, 687, 289
+Jordan, Jordan 13 Retro Wheat, 190, 772, 135
+Jordan, Jordan 3 Retro Hall of Fame, 190, 6780, 209
+Nike, Air VaporMax 2 Rust Pink (W), 190, 949, 226
+Jordan, Jordan 4 Retro Tattoo (2018), 225, 1069, 239
+Nike, Kobe 1 Protro Undefeated Camo, 180, 1806, 431
+Nike, Nike Blazer Mid Off-White, 130, 690, 992
+Adidas, adidas Human Race NMD Pharrell Holi Festival (Pink Glow), 250, 4105, 330
+Adidas, adidas Yeezy Boost 350 V2 Core Black Red, 220, 910, 929
+Nike, Air Max 97 Off-White Menta, 190, 1262, 765
+Adidas, adidas Ultra Boost 2.0 Silver Medal (2018), 200, 1315, 175
+Nike, Air More Uptempo Scottie Pippen (2018), 160, 637, 182
+Nike, Nike SB Gato Supreme Light Armory Blue, 110, 754, 151
+Jordan, Jordan 4 Retro Oreo (2015), 190, 933, 208
+Adidas, adidas NMD Hu Pharrell Solar Pack Orange, 250, 2172, 257
+Nike, Air Fear Of God 1 SA Black, 300, 722, 548
+Nike, Air VaporMax Plus Cargo Khaki, 190, 533, 220
+Jordan, Jordan 10 Retro Light Smoke Grey, 190, 1230, 179
+Jordan, Jordan 1 Retro All Star 2017 "Chameleon", 175, 1555, 269
+Jordan, Jordan 1 Mid Deep Royal Blue Black, 120, 836, 135
+Nike, Air Force 1 Low Playstation (2018), 200, 984, 380
+Nike, Nike SB Dunk Mid White Widow, 100, 1226, 136
+Nike, Air Max 95 Atmos We Love Nike (Bright Crimson), 170, 507, 132
+Nike, Air Max 95 Atmos Animal Pack 2.0 (2018 All Black Box), 200, 1521, 364
+Nike, Air Foamposite One Big Bang, 230, 3152, 502
+Adidas, adidas Ultra Boost 4.0 Breast Cancer Awareness, 180, 2610, 162
+Nike, Air Max 95 Carhartt WIP Camo, 170, 770, 182
+Adidas, adidas EQT Support 93-17 Triple Black, 180, 1185, 112
+Adidas, adidas Ultra Boost 4.0 Core Black (W), 180, 576, 128
+Other, Puma RS-0 SEGA Sonic the Hedgehog, 130, 557, 197
+Nike, Air Force 1 Low Skeleton Halloween (2018), 130, 1260, 162
+Adidas, adidas NMD R2 Japan Core Black, 170, 576, 127
+Adidas, adidas Human Race NMD Pharrell Oreo, 240, 1313, 456
+Adidas, adidas Ultra Boost Lux Sneakersnstuff x Social Status Vintage White, 200, 1233, 138
+Jordan, Jordan 1 Retro Bred "Banned" (2016), 160, 2602, 451
+Adidas, adidas Ultra Boost 4.0 Core Black, 180, 3500, 137
+Jordan, Jordan 1 Retro High Gatorade Blue Lagoon, 175, 1107, 130
+Nike, Nike Blazer Mid Off-White All Hallow's Eve, 130, 5318, 608
+Nike, Air Max 97 Metallic Gold (GS), 150, 784, 149
+Nike, Nike SB Dunk High Humidity, 110, 1475, 209
+Jordan, Jordan 1 Retro High Wings, 200, 1092, 186
+Nike, LeBron 16 HFR (W), 250, 706, 353
+Adidas, adidas Yeezy 500 Blush, 200, 37816, 296
+Nike, Kyrie 4 Equality Black History Month (2018), 120, 700, 164
+Nike, Air Force 1 Low John Elliott White, 150, 648, 150
+Jordan, Jordan 14 Retro Ferrari, 200, 521, 328
+Other, Balenciaga Triple S Black White Red (2018 Reissue), 795, 627, 1024
+Jordan, Jordan 1 Retro High Game Royal (GS), 120, 4811, 175
+Adidas, adidas Yeezy Powerphase Calabasas Core White, 120, 1505, 265
+Nike, Kyrie 4 Uncle Drew, 120, 559, 112
+Jordan, Jordan 4 Retro Motorsports Alternate, 190, 1013, 171
+Jordan, Jordan 12 Retro Michigan, 225, 3480, 256
+Adidas, adidas Ultra Boost 3.0 Multi-Color, 200, 646, 188
+Nike, Air Max 90 NIC, 140, 984, 169
+Nike, Air Force 1 Low Off-White Black White, 170, 3798, 508
+Jordan, Jordan 1 Retro High Equality Black History Month (2018), 145, 753, 201
+Jordan, Jordan 1 Retro High Blue Moon (GS), 120, 1482, 197
+Jordan, Jordan 1 Mid Black Cone, 110, 1042, 104
+Jordan, Jordan 11 Retro Space Jam (2016), 220, 5410, 289
+Jordan, Jordan 1 Retro High NRG Patent Gold Toe, 160, 11973, 258
+Jordan, Jordan 5 Retro Red Suede, 190, 1053, 187
+Nike, Nike Blazer Mid 77 Habanero Red, 100, 550, 132
+Jordan, Jordan 9 Retro Boot Black Concord, 225, 673, 180
+Nike, Nike React Hyperdunk 2017 Flyknit Off-White, 200, 776, 617
+Jordan, Jordan 1 Retro High Court Purple (GS), 120, 5102, 318
+Jordan, Jordan 11 Retro Low Closing Ceremony, 170, 1239, 193
+Nike, Nike Dunk SB High Diamond Supply Co. "Tiffany", 108, 564, 232
+Jordan, Jordan 1 Retro Metallic Red (2017), 160, 1340, 140
+Jordan, Jordan 10 Retro Orlando, 190, 1579, 149
+Jordan, Jordan 1 Retro High Satin Shattered Backboard (W), 160, 12099, 353
+Jordan, Jordan 11 Retro Low Rose Gold (W), 175, 2036, 199
+Jordan, Jordan 11 Retro UNC Win Like 82, 220, 5295, 225
+Other, Converse Chuck Taylor All-Star 70s Hi Off-White, 130, 10312, 313
+Nike, Air Max 1-97 Sean Wotherspoon (TD), 100, 847, 237
+Adidas, adidas Ultra Boost 4.0 Black Multi-Color NYC Bodegas, 180, 1435, 115
+Jordan, Jordan 11 Retro Low Cool Grey, 175, 4647, 178
+Jordan, Jordan 12 Retro Chris Paul Class Of 2003, 190, 1039, 180
+Nike, Air Force 1 Low Just Do It Pack White (GS), 85, 590, 125
+Nike, LeBron 15 Diamond Turf, 200, 651, 267
+Jordan, Jordan 4 Retro Laser Black Gum, 200, 1575, 172
+Jordan, Jordan 13 Retro Bred (2017), 190, 1916, 188
+Nike, Kyrie 4 Red Carpet, 120, 699, 145
+Adidas, adidas Ultra Boost 4.0 Chinese New Year (2018), 180, 618, 211
+Nike, Air Max 1 Anniversary Royal (2017 Restock Pair), 140, 1047, 190
+Jordan, Jordan 13 Retro White Hyper Royal Black, 190, 2209, 202
+Nike, Air Max 97 White Pure Platinum University Red, 160, 588, 167
+Nike, Air VaporMax Moc 2 Acronym Light Bone, 225, 2393, 271
+Jordan, Jordan 18 Retro Black Sport Royal, 225, 762, 241
+Nike, Air VaporMax 2 Volt, 190, 540, 187
+Jordan, Jordan 13 Retro He Got Game (2018), 190, 6035, 210
+Nike, Air Max 95 ERDL Party White, 190, 635, 175
+Jordan, Jordan 12 Retro Bordeaux, 190, 857, 176
+Adidas, adidas Human Race NMD Pharrell Multi-Color, 240, 1415, 327
+Jordan, Jordan 11 Retro Win Like 96 (GS), 170, 980, 201
+Jordan, Jordan 1 Retro Yin Yang Black, 160, 1009, 127
+Nike, Air Foamposite One Habanero Red, 230, 594, 189
+Adidas, adidas Ultra Boost Mid Kith x Nonnative, 240, 823, 207
+Jordan, Jordan 1 Retro Black Toe (2016), 160, 1445, 477
+Jordan, Jordan 1 Retro High Gold Top 3, 160, 660, 463
+Jordan, Jordan 12 Retro Flu Game (2016), 190, 2005, 271
+Jordan, Jordan 1 Mid Patent Black White Gold, 110, 1385, 167
+Nike, Nike Killshot 2 J Crew Sail Midnight Navy, 90, 1792, 124
+Jordan, Jordan 11 Retro Legend Blue (2014), 200, 2263, 266
+Jordan, Jordan 1 Retro Shattered Backboard, 160, 738, 771
+Nike, Air Max 95 OG Neutral Olive Total Orange, 160, 628, 127
+Adidas, adidas Ultra Boost Clima Black, 220, 1369, 191
+Jordan, Jordan 4 Retro Levi's Denim (Tag with Levi's Logo), 225, 788, 623
+Jordan, Jordan 3 Retro Wool, 200, 573, 119
+Jordan, Jordan 11 Retro Low Iridescent, 175, 3719, 184
+Adidas, adidas Pharrell NMD HU China Pack Peace (Blue), 250, 717, 445
+Jordan, Jordan 1 Retro High Track Red, 160, 1457, 296
+Nike, Air Max 1 Atmos Animal Pack 2.0 (2018 All Black Box), 160, 6455, 286
+Adidas, adidas NMD R1 Japan Triple White, 180, 2087, 179
+Nike, Air Max 270 Bowfin Black Desert, 160, 662, 180
+Jordan, Jordan 17 Retro Low SoleFly Alternate Lightning, 225, 622, 354
+Nike, Air Force 1 High PSNY Grey, 200, 504, 245
+Jordan, Jordan 1 Retro High Shadow 2018 (GS), 120, 5030, 155
+Jordan, Jordan 6 Retro Maroon (2015), 220, 1097, 202
+Jordan, Jordan 8 Retro Take Flight "Undefeated", 190, 567, 183
+Nike, Flyknit Trainer White Black (2017), 150, 573, 230
+Nike, Air Zoom Generation Wheat Retro, 225, 507, 166
+Jordan, Jordan 9 Retro Bred Patent, 190, 5053, 221
+Other, Vans Old Skool NASA Space Voyager Firecracker, 85, 1107, 105
+Adidas, adidas Ultra Boost 4.0 Orca, 180, 644, 152
+Nike, Nike SB Gato Supreme Red, 110, 934, 144
+Adidas, adidas Alphaedge 4D White, 300, 1249, 342
+Jordan, Jordan 11 Retro Concord (2018), 220, 28836, 282
+Adidas, adidas Ultra Boost 3.0 Dark Burgundy, 180, 505, 136
+Nike, Air VaporMax Plus Hyper Blue, 190, 577, 192
+Nike, Nike SB Dunk Low Concepts Purple Lobster (Special Packaging), 130, 531, 351
+Adidas, adidas NMD R1 Tri Color Stripes Black, 170, 566, 225
+Jordan, Jordan 1 Retro High RE2PECT (Derek Jeter), 160, 1004, 189
+Nike, LeBron 16 1 Thru 5 (What The), 200, 1954, 330
+Nike, Air Force 1 Low Off-White, 170, 854, 995
+Jordan, Jordan 4 Retro Pure Money 2017 (GS), 140, 790, 150
+Nike, Air Max 1 Watermelon, 110, 1360, 131
+Jordan, Jordan 12 Retro Gym Red (2018), 190, 3962, 193
+Nike, Air Fear Of God 1 Light Bone, 395, 1588, 894
+Jordan, Jordan 1 Mid White Black, 110, 2802, 129
+Nike, Air Force 1 Low CLOT 1WORLD (2018), 200, 1718, 377
+Jordan, Jordan 10 Retro Double Nickel, 190, 582, 180
+Jordan, Jordan 1 Rebel XX Chicago (W), 145, 1808, 167
+Jordan, Jordan 6 Retro Wheat, 190, 1195, 137
+Adidas, adidas Yeezy Boost 350 V2 Static, 220, 17434, 283
+Nike, Air Max 1 Curry (2018), 150, 976, 112
+Nike, Air Max 270 Black Hot Punch, 150, 664, 163
+Nike, Air Max 97 White Wolf Grey, 160, 1182, 180
+Nike, Air Force 1 Low Supreme x Comme des Garcons (2018), 165, 3621, 298
+Jordan, Jordan 1 Retro Mid New Love (2017), 110, 810, 283
+Nike, Air Max 98 Cone, 180, 2567, 225
+Nike, Air Vapormax Off White 2018, 250, 6410, 592
+Jordan, Jordan 1 Retro High Nigel Sylvester, 180, 4083, 339
+Other, Vans Sk8-Hi Deconstructed Black, 115, 658, 239
+Jordan, Jordan 3 Retro Cyber Monday (2016), 190, 606, 133
+Nike, Nike SB Dunk Low Doernbecher (2018), 90, 1313, 192
+Jordan, Jordan 1 Retro High Blue Moon, 160, 7353, 235
+Nike, Air Max 97 Smokey Mauve, 160, 610, 218
+Nike, Nike SB Gato Supreme White, 110, 1745, 151
+Nike, Air VaporMax Utility Triple Black, 225, 944, 199
+Jordan, Jordan 3 Retro Flyknit Black, 200, 1513, 232
+Jordan, Jordan 13 Retro Carmelo Anthony Class Of 2002 (B-Grade), 190, 3318, 131
+Other, Converse Chuck Taylor All-Star 70s Hi Kith x Coca Cola Red, 150, 832, 327
+Jordan, Jordan 1 Retro Royal (2017), 160, 5396, 265
+Jordan, Jordan 13 Retro Olive, 190, 1049, 128
+Jordan, Jordan 3 Retro Pure White (2018), 190, 2054, 165
+Jordan, Jordan 5 Retro Laney (2013), 170, 524, 190
+Other, Converse Chuck Taylor All-Star 70s Ox Comme des Garcons PLAY White, 120, 1248, 141
+Jordan, Jordan 3 Retro International Flight, 190, 2543, 168
+Jordan, Jordan 12 Retro Chinese New Year, 250, 704, 266
+Nike, Air VaporMax Flyknit 2 White Vast Grey, 190, 525, 172
+Adidas, adidas NMD Hu Pharrell Inspiration Pack White, 250, 2328, 231
+Jordan, Jordan 10 Retro Shadow (2018), 190, 2070, 153
+Jordan, Jordan 4 Retro Fire Red Singles Day 2018 (W), 190, 954, 175
+Adidas, adidas Ultra Boost 4.0 Running White, 180, 5652, 136
+Adidas, adidas NMD Racer Juice HK, 220, 640, 131
+Adidas, adidas Ultra Boost 4.0 Dark Mocha, 180, 675, 127
+Adidas, adidas Yung-1 Dragon Ball Z Frieza, 150, 2464, 199
+Adidas, adidas Falcon Core Black Light Granite, 150, 735, 139
+Adidas, adidas NMD R1 Core Black Lush Red (2015-2017), 170, 994, 251
+Nike, Air VaporMax 97 Metallic Gold, 190, 1380, 173
+Jordan, Jordan 1 Retro High Flyknit Bred, 180, 977, 138
+Jordan, Jordan 11 Retro Low Iridescent (GS), 130, 1007, 163
+Nike, Nike PG 2 Playstation, 110, 954, 526
+Nike, Kobe AD Sail Multi-Color, 140, 801, 189
+Jordan, Jordan Legacy 312 Storm Blue, 160, 1776, 220
+Jordan, Jordan 4 Retro Travis Scott Cactus Jack, 225, 18198, 380
+Jordan, Jordan 1 Retro High Aleali May Court Lux (W), 160, 1677, 213
+Adidas, adidas Ultra Boost 4.0 Triple Black Nubuck Cage, 180, 1370, 171
+Jordan, Jordan 11 Retro Concord (2011), 175, 728, 386
+Nike, LeBron 15 Air Max 95, 200, 616, 246
+Adidas, adidas NMD Hu Pharrell Inspiration Pack Clear Sky, 250, 2013, 232
+Jordan, Jordan 4 Retro Kaws Black, 350, 1238, 782
+Jordan, Jordan 1 Retro High Gatorade Cyber, 175, 972, 148
+Jordan, Jordan 3 Retro Free Throw Line White Cement, 200, 3810, 417
+Nike, Air VaporMax Moc 2 Acronym Black, 225, 1045, 233
+Jordan, Jordan 12 Retro International Flight, 200, 3736, 198
+Jordan, Jordan 1 Mid South Beach (GS), 90, 1617, 125
+Nike, Nike SB Dunk Low Concepts Green Lobster (Special Box), 100, 1141, 507
+Nike, Air Max 97 Silver Bullet (2016-2017), 170, 1679, 263
+Jordan, Jordan 7 Retro Hare (2015), 190, 948, 193
+Jordan, Jordan 1 Retro Royal 2017 (GS), 120, 992, 195
+Jordan, Jordan 11 Retro Low Bleached Coral (GS), 130, 1037, 155
+Adidas, adidas Ultra Boost 4.0 Parley Carbon Blue Spirit, 180, 740, 126
+Adidas, adidas Yeezy Boost 350 V2 Beluga 2.0, 220, 15680, 418
+Jordan, Jordan 1 Retro High Homage To Home (Non-numbered), 160, 26337, 270
+Nike, Air Max 97 Metallic Gold, 160, 4101, 184
+Nike, Kyrie 4 All-Star (2018), 120, 782, 131
+Jordan, Jordan 12 Retro Deep Royal Blue, 190, 916, 223
+Jordan, Jordan 7 Retro Bordeaux (2015), 190, 1003, 223
+Adidas, adidas NMD R1 Marble Aero Green, 170, 713, 101
+Jordan, Jordan 8 Retro Cool Grey, 190, 529, 162
+Jordan, Jordan 1 Retro High Spider-Man Origin Story, 160, 15200, 291
+Nike, Air Max 98 Tour Yellow, 160, 527, 206
+Other, Balenciaga Triple S Grey Red Blue (2018 Reissue), 950, 526, 1015
+Nike, Nike M2K Tekno Phantom Olive Grey, 100, 630, 145
+Jordan, Jordan 4 Retro Levi's White (Levi's Tag), 225, 1154, 450
+Adidas, adidas Ultra Boost 4 Show Your Stripes Black, 180, 1326, 128
+Nike, Air Max 97 UNDFTD Black, 180, 796, 480
+Adidas, adidas Solar Hu Glide White, 150, 517, 193
+Nike, Kobe NXT 360 Black Multi-Color, 200, 965, 249
+Jordan, Jordan 11 Retro Concord 2018 (GS), 170, 3054, 186
+Adidas, adidas Ultra Boost 1.0 UNDFTD White, 219, 1225, 289
+Jordan, Jordan 1 Retro David Letterman, 160, 538, 106
+Nike, Nike M2K Tekno Pink Foam (W), 100, 519, 144
+Jordan, Jordan 1 Mid Pro Purple Desert Sand (GS), 90, 812, 132
+Jordan, Jordan 13 Retro He Got Game 2018 (GS), 140, 4363, 176
+Other, Converse Chuck Taylor All-Star 70s Ox Comme des Garcons PLAY Black, 120, 1150, 141
+Nike, Air Max 1 Anniversary Obsidian, 140, 837, 197
+Nike, LeBron 15 Griffey, 200, 760, 290
+Jordan, Jordan 5 Retro Grape (2013), 160, 807, 207
+Adidas, adidas Yung-1 Collegiate Navy, 130, 1256, 131
+Nike, Air Max 98 White, 160, 505, 172
+Jordan, Jordan 4 Retro Royalty, 190, 1388, 240
+Jordan, Jordan 3 Retro Tinker Hatfield, 200, 10424, 265
+Adidas, adidas Yeezy 500 Utility Black, 200, 22694, 288
+Adidas, adidas Yung-1 Hi-Res Orange, 130, 1337, 135
+Jordan, Jordan 3 Retro Quai54 (2018), 180, 1414, 263
+Jordan, Jordan 11 Retro Low Barons, 175, 841, 231
+Adidas, adidas Deerupt Dragon Ball Z Son Gohan, 100, 1730, 192
+Jordan, Jordan 1 Mid White Black (GS), 90, 1429, 126
+Jordan, Jordan 12 Retro Doernbecher (2017), 190, 507, 254
+Jordan, Jordan 4 Retro Toro Bravo, 160, 747, 348
+Jordan, Jordan 3 Retro Black Cement 2018 (GS), 140, 2332, 120
+Jordan, Jordan 1 Retro High Union Los Angeles Black Toe, 190, 4252, 677
+Other, Converse Chuck Taylor All-Star 70s Hi Comme des Garcons PLAY Black, 125, 1980, 153
+Jordan, Jordan 3 Retro Chlorophyll, 190, 1720, 142
+Jordan, Jordan 1 Retro High City of Flight, 160, 1159, 105
+Nike, Air Max Deluxe Photo Blue Orange Peel, 180, 599, 183
+Nike, Air Max 90 Off-White, 160, 914, 872
+Jordan, Jordan 12 Retro Winter Black (GS), 140, 647, 162
+Jordan, Jordan 1 Retro High OG Sail (GS), 120, 571, 101
+Nike, Air Foamposite One Eggplant (2017), 230, 796, 215
+Adidas, adidas NMD R1 Sashiko White, 170, 761, 108
+Nike, Air Force 1 Low Easter (2018), 130, 1284, 108
+Jordan, Jordan 9 Retro OG (2016), 190, 893, 239
+Adidas, adidas Ultra Boost Clima White, 200, 549, 152
+Nike, Air VaporMax 95 Neon, 190, 1058, 174
+Jordan, Jordan 4 Retro Levi's Black (Blank Tag), 225, 974, 294
+Jordan, Jordan 18 Retro Toro, 225, 1693, 270
+Nike, Air VaporMax Plus Grape, 190, 1578, 203
+Adidas, adidas Yeezy Boost 750 Light Brown Gum (Chocolate), 350, 689, 714
+Jordan, Jordan 8 Retro Aqua (2015), 190, 1045, 200
+Adidas, adidas Ultra Boost OG (2018), 180, 2124, 188
+Jordan, Jordan 1 Retro High Clay Green, 160, 8002, 222
+Jordan, Jordan 11 Retro Low Midnight Navy, 170, 740, 205
+Nike, KD 4 Think 16 (Thunderstruck), 140, 943, 129
+Jordan, Jordan 13 Retro Altitude (2017), 190, 1157, 143
+Adidas, adidas Ultra Boost 2.0 Multi-Color, 180, 1606, 219
+Adidas, adidas NMD Hu Pharrell Inspiration Pack Powder Blue, 250, 1358, 195
+Nike, LeBron 15 Rust Pink, 185, 683, 181
+Jordan, Jordan 10 Retro Russell Westbrook Class of 2006, 190, 889, 159
+Jordan, Jordan 6 Retro Sport Blue (2014), 170, 628, 190
+Jordan, Jordan 4 Retro Columbia (2015), 190, 776, 199
+Adidas, adidas Human Race NMD Pharrell Holi Festival (Chalk Coral), 250, 4187, 349
+Nike, Air Max 97 Country Camo (USA), 180, 568, 152
+Jordan, Jordan 3 Retro Black Cement (2018), 200, 22834, 242
+Adidas, adidas Yeezy Boost 350 V2 Semi Frozen Yellow, 220, 14075, 326
+Jordan, Jordan 12 Retro French Blue (2016), 190, 1104, 237
+Jordan, Jordan 1 Retro Chicago (2015), 160, 870, 644
+Adidas, adidas Ultra Boost 4.0 A Ma Maniere x Invincible Cashmere Wool, 200, 774, 220
+Jordan, Jordan 5 Retro Paris Saint-Germain, 225, 3436, 252
+Nike, Air VaporMax 97 Grape, 190, 646, 142
+Nike, Air Max 1 Just Do It Pack Orange, 130, 790, 154
+Jordan, Jordan 1 Retro High Bred Toe, 160, 18637, 311
+Nike, Air Max 1 Atmos Elephant (2017), 150, 509, 524
+Adidas, adidas Ultra Boost 2.0 Gold Medal, 200, 511, 203
+Jordan, Jordan 5 Retro P51 Camo, 190, 821, 142
+Jordan, Jordan 1 Mid Reverse New Love, 110, 552, 121
+Nike, Air Force 1 Low Just Do It Pack Total Orange, 130, 1027, 143
+Nike, Kyrie 4 Day of the Dead, 130, 626, 149
+Nike, Nike SF Air Force 1 High Triple Black, 185, 632, 115
+Nike, Air Foamposite One Royal Blue XX 20th Anniversary (2017), 230, 650, 226
+Nike, Air Force 1 Low Taiwan (2018), 130, 623, 232
+Nike, Air Foamposite Pro Black Metallic Gold, 230, 947, 204
+Nike, Nike Blazer Mid LA vs. NYC, 120, 578, 142
+Jordan, Jordan 1 Retro High Pine Green (GS), 120, 2171, 268
+Adidas, adidas Yeezy Boost 350 V2 Static Reflective, 220, 11362, 465
+Jordan, Jordan 1 Retro Bred 2016 "Banned" (GS), 120, 654, 284
+Nike, Air Force 1 Low Swoosh Pack All-Star 2018 (Black), 110, 819, 175
+Nike, Nike SB Dunk High Premier Win Some Lose Some, 110, 747, 147
+Nike, Air Max 97 South Beach, 160, 2252, 199
+Adidas, adidas NMD R1 A Ma Maniere x Invincible Cashmere Wool, 180, 540, 170
+Nike, Air Max 95 OG Solar Red (2018), 160, 1557, 135
+Jordan, Jordan 11 Retro Cap and Gown, 250, 11281, 322
+Nike, Air Force 1 Low Off-White Volt, 170, 3947, 391
+Jordan, Jordan 11 Retro Win Like 96, 220, 6700, 248
+Jordan, Jordan 6 Retro Infrared Black (2014), 185, 1703, 285
+Other, Converse Chuck Taylor All-Star 70s Hi Midnight Studios, 120, 541, 195
+Jordan, Jordan 12 Retro Winter Black, 200, 2023, 212
+Nike, Air Force 1 Low A Cold Wall White, 190, 1046, 246
+Adidas, adidas NMD R1 Core Black Carbon, 130, 970, 114
+Jordan, Jordan 12 Retro International Flight (GS), 140, 516, 118
+Adidas, adidas Ultra Tech Dragon Ball Z Vegeta, 160, 1486, 222
+Jordan, Jordan 5 Retro Black Metallic (2016), 220, 1883, 241
+Nike, Nike M2K Tekno White Black Orange (W), 100, 726, 169
+Jordan, Jordan 2 Retro Melo (2018), 190, 678, 181
+Nike, Air Zoom Generation SVSM Retro, 175, 1656, 215
+Nike, Air Max 270 Light Bone Hot Punch, 150, 1382, 181
+Adidas, adidas Ultra Boost 4.0 Triple White (W), 180, 511, 145
+Jordan, Jordan 11 Retro Heiress Black Stingray (GS), 220, 1568, 164
+Nike, Air Max 97 Plus Layer Cake, 175, 612, 168
+Adidas, adidas COPA ACE 16+ Purecontrol Ultra Boost Kith Golden Goal, 220, 1190, 193
+Adidas, adidas NMD R1 Colour Static Rainbow, 170, 688, 176
+Adidas, adidas Ultra Boost 1.0 Cream White, 200, 2966, 198
+Adidas, adidas NMD Hu Pharrell x Billionaire Boys Club Multi-Color, 250, 3818, 264
+Adidas, adidas Human Race NMD Pharrell Holi Festival (Core Black), 250, 4325, 406
+Nike, Air Max 270 Triple Black, 150, 866, 136
+Nike, Nike PG 2.5 Playstation Wolf Grey, 110, 6134, 152
+Adidas, adidas Yeezy 700 Mauve, 300, 14588, 299
+Adidas, adidas Yeezy Boost 350 V2 Core Black White, 220, 1697, 708
+Jordan, Jordan 5 Retro Wings (GS), 160, 569, 219
+Nike, Air VaporMax Triple Black 3.0, 190, 739, 269
+Nike, Air More Uptempo White Varsity Red Outline, 160, 683, 155
+Adidas, adidas Yeezy Boost 350 V2 Core Black Copper, 220, 722, 646
+Nike, Kobe 1 Protro MPLS, 175, 505, 143
+Adidas, adidas Yeezy Boost 350 V2 Sesame, 220, 20490, 264
+Jordan, Jordan 5 Retro Blue Suede, 190, 940, 180
+Adidas, adidas Solar Hu Glide Multi-Color, 150, 875, 213
+Nike, Kobe 1 Protro Think 16 (Close Out), 175, 1751, 191
+Nike, Air Max 97 Cristiano Ronaldo Portugal Patchwork, 170, 1596, 293
+Other, Vans Sk8-Hi Deconstructed Marshmallow, 115, 605, 184
+Adidas, adidas Solar Hu Glide Black, 150, 883, 190
+Nike, Air Max 270 Doernbecher (2018), 150, 545, 195
+Jordan, Jordan 1 Rebel XX Top 3 (W), 145, 2408, 201
+Adidas, adidas Ultra Boost 4.0 Grey Four, 180, 602, 157
+Jordan, Jordan 1 Mid Alternate Think 16, 110, 1915, 147
+Jordan, Jordan 1 Mid Top 3, 110, 845, 140
+Nike, LeBron 16 Fresh Bred, 185, 901, 162
+Jordan, Jordan 3 Retro JTH Bio Beige, 250, 3584, 304
+Nike, LeBron 15 Black Gold, 185, 556, 197
+Nike, Nike PG 2.5 Playstation Multi-Color, 110, 994, 152
+Other, Converse Chuck Taylor All-Star 70s Hi Brain Dead, 110, 864, 220
+Other, Vans Sk8-Hi MTE NASA Space Voyager True White, 110, 1683, 144
+Jordan, Jordan 9 Retro MOP Melo, 190, 1340, 315
+Jordan, Jordan 1 Retro High Hyper Royal, 160, 1817, 117
+Nike, Kyrie 4 Halloween, 120, 840, 132
+Adidas, adidas Yeezy Boost 350 V2 Butter, 220, 43420, 270
+Jordan, Jordan 1 Mid Hornets, 110, 1118, 138
+Jordan, Jordan 11 Retro Platinum Tint (GS), 170, 552, 146
+Nike, Air VaporMax Plus Black Orange Crimson, 190, 951, 243
+Nike, Nike SB Gato Supreme Black, 110, 1197, 127
+Nike, Air Force 1 Mid Supreme NBA White, 165, 6212, 270
+Jordan, Jordan 13 Retro Alternate History of Flight, 190, 697, 156
+Other, Vans Sk8-Hi MTE NASA Space Voyager Black, 110, 866, 132
+Adidas, adidas Yeezy Powerphase Calabasas Grey, 120, 4162, 159
+Adidas, adidas Ultra Boost 4.0 Parley Carbon, 200, 1182, 126
+Nike, Nike PG 2.5 Playstation White, 110, 553, 187
+Jordan, Jordan 5 Retro Satin Bred, 190, 2206, 171
+Nike, Kyrie 4 Cinnamon Toast Crunch, 120, 1770, 156
+Nike, Air Force 1 Low Travis Scott (AF100), 150, 591, 555
+Adidas, adidas Ultra Boost 1.0 Multi-Color Toe Navy, 200, 1232, 142
+Jordan, Jordan 12 Retro Gym Red, 190, 1010, 220
+Adidas, adidas Ultra Boost Clima Solar Yellow, 200, 963, 105
+Jordan, Jordan 1 Retro High Sports Illustrated (A Star Is Born), 160, 10617, 212
+Jordan, Jordan 10 Retro I'm Back, 190, 878, 175
+Adidas, adidas Ultra Boost Clima Core Black Solar Red, 220, 1800, 148
+Jordan, Jordan 3 Retro Mocha (2018), 190, 1663, 176
+Nike, Nike Blazer Mid Off-White Grim Reaper, 130, 5613, 530
+Jordan, Jordan 1 Mid White Plaid (GS), 90, 1542, 118
+Jordan, Jordan 13 Retro Low Clot Black Red, 200, 601, 331
+Jordan, Jordan 3 Retro True Blue (2016), 220, 2639, 228
+Jordan, Jordan 5 Retro Wings, 200, 4087, 289
+Jordan, Jordan 12 Retro Chinese New Year (2019), 250, 644, 250
+Jordan, Jordan Legacy 312 Ghost Green, 160, 1105, 179
+Jordan, Jordan 6 Retro Gatorade Green, 225, 1574, 255
+Nike, Air Max 97 Off-White Elemental Rose Serena "Queen", 190, 954, 908
+Nike, Air Max 90 South Beach, 110, 858, 119
+Nike, Air Foamposite One Copper (2017), 230, 570, 168
+Jordan, Jordan 6 Retro Chinese New Year (2018), 250, 1727, 234
+Jordan, Jordan 6 Retro Tinker, 190, 1871, 157
+Adidas, adidas Yeezy Boost 350 V2 Core Black Green, 220, 611, 617
+Jordan, Jordan 1 Retro Metallic Navy (2016), 160, 533, 161
+Adidas, adidas Dame 4 A Bathing Ape Camo, 150, 2245, 322
+Adidas, adidas NMD R1 Core Black Lush Red, 150, 1788, 126
+Jordan, Jordan 1 Retro High Game Royal, 160, 19134, 213
+Nike, Kobe 1 Protro Black Maize, 175, 1417, 229
+Jordan, Jordan 4 Retro Raptors, 200, 4444, 231
+Adidas, adidas NMD R1 STLT Triple Black, 170, 2946, 104
+Adidas, adidas Yeezy Boost 350 V2 Zebra, 220, 34858, 340
+Jordan, Jordan 14 Retro Last Shot (2018), 190, 2456, 180
+Jordan, Jordan 1 Retro High OG Black, 160, 568, 129
+Adidas, adidas NMD CS1 Gore-tex Black, 230, 679, 130
+Nike, LeBron 16 King, 185, 722, 216
+Jordan, Jordan 12 Retro The Master, 190, 968, 282
+Nike, LeBron 15 Multi-Color, 185, 634, 149
+Adidas, adidas NMD Hu Pharrell Inspiration Pack Black, 250, 2391, 221
+Nike, Air Max 95 ERDL Party Black, 190, 927, 192
+Nike, Air Force 1 Low Carhartt WIP Ale Brown, 130, 715, 126
+Nike, Air Max 97 Off-White Black, 190, 1288, 673
+Adidas, adidas I-5923 Neighborhood Core Black, 200, 964, 219
+Nike, Air Max 1 Anniversary Aqua, 140, 998, 104
+Nike, Air Max 1-97 Sean Wotherspoon (Extra Lace Set Only), 160, 10008, 582
+Jordan, Jordan 8 Retro Valentine's Day 2018 (W), 190, 832, 288
+Nike, Air Force 1 Low Roc-A-Fella (AF100), 150, 931, 154
+Adidas, adidas Yeezy 700 V2 Static, 300, 4074, 416
+Jordan, Jordan 1 Mid Chicago, 110, 827, 126
+Adidas, adidas NMD CS1 Parley Blue Spirit, 220, 513, 106
+Jordan, Jordan Legacy 312 Command Force Volt, 160, 631, 142
+Jordan, Jordan 1 Retro High Neutral Grey Hyper Crimson, 160, 7776, 235
+Nike, Air VaporMax Plus Triple Black, 190, 2365, 214
+Jordan, Jordan 12 Retro Taxi (2013), 170, 517, 329
+Adidas, adidas Ultra Boost 4.0 Grey Two, 180, 1983, 128
+Jordan, Jordan 7 Retro Pantone, 190, 548, 118
+Jordan, Jordan 7 Retro Pure Platinum, 190, 637, 126
+Jordan, Jordan Defining Moments Pack Last Shot, 500, 739, 335
+Adidas, adidas Ultra Boost 4.0 White Multi-Color, 180, 1751, 127
+Nike, Air Foamposite One Chrome White (W), 230, 684, 159
+Jordan, Jordan 1 Rebel XX Concord (W), 145, 517, 146
+Nike, Air VaporMax Off-White, 250, 855, 1007
+Jordan, Jordan 1 Mid Gym Red Black, 110, 3499, 124
+Jordan, Jordan 3 Retro Golf White Cement, 200, 843, 351
+Nike, Air VaporMax Plus White, 190, 1673, 203
+Jordan, Jordan 5 Retro Grape Fresh Prince, 190, 2399, 240
+Jordan, Jordan 1 Retro High Sports Illustrated (A Star Is Born) (GS), 120, 3780, 157
+Jordan, Jordan 3 Retro Hall of Fame (GS), 140, 657, 119
+Jordan, Jordan 1 Retro 30th Anniversary Laser, 185, 526, 188
+Nike, Nike SB Dunk Low Diamond Supply Co Black Diamond, 100, 3901, 182
+Jordan, Jordan 9 Retro Bred Patent (GS), 140, 1163, 171
+Nike, Air Fear Of God 1 Black, 395, 2951, 793
+Other, Vans Old Skool Cream Red, 60, 574, 121
+Jordan, Jordan 1 Retro Yin Yang White, 160, 1808, 141
+Jordan, Jordan 11 Retro Low Cool Grey (GS), 130, 838, 132
+Other, Vans Old Skool NASA Space Voyager True White, 85, 3805, 149
+Other, Vans Sk8-Hi Van Gogh Almond Blossom (W), 100, 511, 111
+Jordan, Jordan 12 Retro Gym Red 2018 (GS), 140, 969, 148
+Jordan, Air Jordan 3 JTH Super Bowl, 200, 2052, 606
+Jordan, Jordan 1 Retro High Union Los Angeles Blue Toe, 190, 3521, 833
+Jordan, Jordan 11 Retro Gamma Blue, 185, 1067, 370
+Nike, Air VaporMax Moc 2 University Gold (W), 200, 633, 239
+Jordan, Jordan 3 Retro AWOK Vogue Black (W), 220, 754, 177
+Jordan, Jordan 1 Retro High Yin Yang White (GS), 120, 511, 114
+Jordan, Jordan 11 Retro Low Concord, 150, 788, 292
+Nike, Nike SB Dunk Low Black Pigeon, 110, 1087, 200
+Adidas, adidas NMD TS1 Gore-Tex Triple Black, 230, 931, 165
+Nike, Nike SB Dunk High Bred, 110, 1022, 129
+Jordan, Jordan 6 Retro Carmine (2014), 170, 1007, 271
+Nike, Air Force 1 Foamposite Cup Triple Black, 200, 923, 104
+Nike, LeBron 15 Cereal, 185, 919, 221
+Jordan, Jordan 1 Mid South Beach, 120, 4793, 155
+Nike, Kobe 1 Protro Mamba Day, 175, 828, 248
+Nike, Air Foamposite Pro All-Star (2018), 250, 1788, 200
+Adidas, adidas Ultra Boost 4.0 Navy Multi-Color, 180, 928, 150
+Jordan, Jordan Why Not 0.2 Future History, 125, 746, 157
+Jordan, Jordan 1 Retro High Bred Toe (GS), 120, 7466, 217
+Nike, LeBron Zoom Soldier 1 Think 16 (25 Straight), 150, 1108, 168
+Adidas, adidas Yeezy 500 Super Moon Yellow, 200, 12408, 255
+Nike, Kyrie 5 Concepts Ikhet (Special Box), 140, 1062, 227
+Nike, Nike Zoom Fly Off-White, 170, 745, 681
+Jordan, Jordan 1 Mid Top 3 (GS), 90, 565, 106
+Jordan, Jordan 4 Retro Levi's Black (GS) (Levi's Tag), 200, 646, 175
+Nike, Air Max 97 Metallic Gold (W), 160, 662, 170
+Nike, Air Force 1 Low De Lo Mio, 165, 1522, 257
+Nike, Kyrie 5 Taco PE, 130, 1707, 158
+Jordan, Jordan 1 Retro High Court Purple, 160, 11165, 328
+Adidas, adidas Human Race NMD Pharrell Sun Glow, 240, 910, 350
+Nike, Lunar Force 1 Low Acronym (AF100), 200, 750, 259
+Jordan, Jordan 5 Retro White Cement, 190, 827, 188
+Jordan, Jordan 6 Retro Black Cat, 190, 573, 191
+Jordan, Jordan 1 Retro High Off-White University Blue, 190, 18751, 852
+Jordan, Jordan 6 Retro Alternate Hare, 190, 608, 194
+Jordan, Jordan 1 Retro High Pine Green, 160, 19144, 260
+Nike, Air More Uptempo Black Reflective (2018), 160, 899, 158
+Jordan, Jordan 6 Retro UNC, 190, 1330, 212
+Nike, Air Foamposite One Denim, 230, 762, 165
+Adidas, adidas EQT Support Adv Gucci, 110, 807, 111
+Jordan, Jordan 4 Retro 30th Anniversary Laser, 250, 784, 217
+Jordan, Jordan 1 Retro High "Not for Resale" Varsity Red, 160, 5342, 599
+Nike, Nike SB Dunk Low Staple Panda Pigeon, 100, 2445, 311
+Jordan, Jordan 11 Retro Low Derek Jeter RE2PECT, 200, 4483, 215
+Jordan, Jordan 1 Retro Top 3, 160, 1461, 424
+Jordan, Jordan 1 Mid Bred Multi-Color, 110, 501, 151
+Jordan, Jordan 6 Retro All Star 2017 "Chameleon", 225, 937, 145
+Jordan, Jordan 1 Retro High Rookie of the Year, 160, 19753, 246
+Jordan, Jordan 1 Retro High Gatorade Rush Violet, 175, 679, 120
+Jordan, Jordan 1 Retro High Paris Saint Germain, 160, 1491, 174
+Jordan, Jordan 13 Retro Black Cat, 190, 819, 221
+Adidas, adidas Human Race NMD Pharrell Blank Canvas, 250, 2921, 438
+Jordan, Jordan 9 Retro City of Flight, 190, 1207, 153
+Nike, Air Max 97 Off-White, 190, 969, 811
+Other, Vans Sk8-Hi Supreme Skull Pile (Green), 110, 1065, 167
+Nike, Air Max 1 Anniversary Red (2017-2018 Restock Pair), 140, 3264, 145
+Nike, Nike SB Dunk Low Diamond Supply Co White Diamond, 100, 2025, 216
+Adidas, adidas Yeezy Boost 350 V2 Beluga, 220, 1435, 741
+Nike, LeBron 15 Red Diamond Turf, 200, 1489, 205
+Nike, Air Max 270 Betrue (2018), 160, 920, 238
+Jordan, Jordan 13 Retro OG Chicago (2017), 190, 1295, 182
+Nike, LeBron 11 What the LeBron, 250, 522, 256
+Nike, Air Fear Of God 1 SA Light Bone Black, 300, 516, 503
+Other, Converse Chuck Taylor All-Star 70s Hi Kith x Coca Cola Yellow, 150, 582, 329
+Nike, Air Max 90 Atmos We Love Nike (Bright Crimson), 140, 710, 123
+Nike, Air Max 93 Menthol (2018), 130, 526, 115
+Nike, Air Max 1 Just Do It Pack White, 130, 943, 150
+Nike, Air Force 1 Low Travis Scott Sail, 150, 9607, 313
+Nike, Air VaporMax 2 Black White, 190, 1298, 182
+Nike, Air Force 1 High Sheed Think 16 (Rude Awakening), 130, 860, 144
+Adidas, adidas Yeezy Boost 350 V2 Black Red Infant (I), 140, 638, 222
+Nike, Air VaporMax Plus Rainbow, 190, 950, 201
+Jordan, Jordan 13 Retro Low Clot Sepia Stone, 200, 2214, 342
+Jordan, Jordan 15 Retro Doernbecher (2018), 190, 836, 233
+Jordan, Jordan 4 Retro Levi's Black (Levi's Tag), 225, 3630, 318
+Nike, Air VaporMax Moc 2 Acronym Sail, 225, 792, 216
+Jordan, Jordan 4 Retro Black Cement (2012), 160, 826, 331
+Jordan, Jordan 11 Retro 72-10, 220, 3054, 274
+Other, Puma Thunder Spectra Black, 120, 2426, 168
+Adidas, adidas Ultra Boost 4.0 Triple Black, 200, 3516, 210
+Jordan, Jordan 1 Mid Multi-Color Swoosh Phantom (GS), 90, 2058, 175
+Nike, Air Foamposite One Rust Pink, 230, 1120, 172
+Jordan, Jordan 1 Retro High Flyknit Shadow, 180, 508, 116
+Adidas, adidas Yeezy Wave Runner 700 Solid Grey, 300, 42205, 433
+Jordan, Jordan 1 Retro Valentine's Day 2017 (GS), 120, 813, 228
+Jordan, Jordan 3 Retro Infrared 23, 170, 636, 227
+Adidas, adidas Crazy BYW LVL 1 Black White, 170, 523, 117
+Adidas, adidas Ultra Boost 4.0 White-Royal, 180, 719, 171
+Jordan, Jordan 4 Retro Kaws, 350, 617, 1159
+Jordan, Jordan 4 Retro Motorsports (2017), 190, 1412, 191
+Nike, Air Force 1 Low 3D Chenille Swoosh White Red Blue, 100, 550, 112
+Nike, Air Max Deluxe Skepta, 190, 1264, 195
+Jordan, Jordan XXXIII Future of Flight, 175, 1146, 202
+Adidas, adidas Ultra Boost 3.0 Oreo, 180, 595, 227
+Jordan, Jordan 6 Retro Infrared White (2014), 170, 846, 216
+Jordan, Jordan 1 Retro High Yellow Ochre, 160, 2112, 324
+Other, Converse Chuck Taylor All-Star 70s Hi Kith x Coca Cola White, 150, 541, 371
+Jordan, Jordan 1 Mid Team Orange Black, 120, 1622, 150
+Adidas, adidas AlphaEdge 4D Ash Green, 300, 755, 382
+Nike, LeBron 16 Superman SuperBron, 200, 807, 214
+Nike, KD 11 EYBL, 150, 1075, 194
+Nike, Kobe 1 Protro Undefeated White, 180, 848, 397
+Adidas, adidas Yeezy Boost 750 Light Grey Glow In the Dark, 350, 535, 908
+Jordan, Jordan 1 Retro High Camo 3M Shadow, 145, 690, 130
+Adidas, adidas Yeezy Boost 350 V2 Blue Tint, 220, 19752, 387
+Jordan, Jordan 1 Retro UNC, 160, 912, 278
+Nike, Air Max 1 Parra (2018), 150, 3463, 366
+Nike, Air Force 1 Low Utility Black White, 100, 1125, 126
+Adidas, adidas Ultra Boost 4.0 Parley Legend Ink, 180, 1284, 139
+Jordan, Jordan 1 Retro Storm Blue, 160, 544, 230
+Nike, Air Force 1 Low Swoosh Pack All-Star 2018 (White), 110, 1147, 196
+Adidas, adidas Yeezy Powerphase Calabasas Core Black, 120, 9536, 119
+Jordan, Jordan 12 Retro Vachetta Tan (W), 190, 773, 139
+Nike, Air Force 1 Low Off-White Black White (TD), 65, 646, 145
+Other, Vans Slip-On Supreme Skull Pile (Green), 98, 722, 163
+Jordan, Jordan 11 Retro Low University Blue (2017), 175, 1704, 186
+Jordan, Jordan 1 Retro High Think 16 (Pass the Torch), 145, 958, 661
+Jordan, Jordan 1 Retro High "Not for Resale" Varsity Maize, 160, 1166, 958
+Adidas, adidas Nite Jogger Core Black, 140, 531, 147
+Adidas, adidas Yeezy Boost 350 V2 Cream White Infant (I), 140, 666, 181
+Jordan, Jordan Legacy 312 Trainer 3 Medicine Ball, 160, 752, 160
+Nike, Nike PG 3 NASA, 120, 1121, 146
+Nike, Air Force 1 High Flax (2017), 140, 508, 126
+Nike, Nike SB Dunk Low Concepts Purple Lobster, 130, 2942, 264
+Jordan, Jordan 11 Retro Low Bred, 170, 859, 280
+Jordan, Jordan 11 Retro Low Cherry (2016), 170, 1015, 221
+Adidas, adidas NMD R1 Neighborhood Core Black, 200, 1897, 299
+Adidas, adidas Kamanda Dragon Ball Z Majin Buu, 150, 1330, 183
+Nike, Air Foamposite One Abalone, 250, 1340, 209
+Jordan, Jordan 10 Retro Tinker, 190, 921, 147
+Jordan, Jordan 1 Retro Metallic Red 2017 (GS), 120, 573, 155
+Adidas, adidas Prophere Dragon Ball Z Cell, 150, 1194, 227
+Jordan, Jordan 4 Retro White Cement (2016), 220, 2761, 310
+Jordan, Jordan 4 Retro Pure Money (2017), 190, 1732, 218
+Other, Converse Chuck Taylor All-Star Hi Off-White, 130, 2037, 942
+Jordan, Jordan 5 Retro International Flight, 190, 2221, 147
+Jordan, Jordan 12 Retro Dark Grey, 190, 749, 203
+Adidas, adidas ZX 500 Dragon Ball Z Son Goku, 170, 3520, 298

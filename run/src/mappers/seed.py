@@ -39,7 +39,7 @@ def run(dbname="shoebox.db"):
                 total_sales,
                 url,
                 year_high,
-                year_low,clea
+                year_low,
                 avg_sale_price,
                 premium
             ) 
@@ -51,15 +51,13 @@ def run(dbname="shoebox.db"):
 
     for key in dcty.keys():
 
-        premium = price_premium(dcty[key]['retail_price'],dcty[key]['avg_sale_price'])
-
         name = key
 
         brand = dcty[key]['brand']
 
-        if 'Harden' in name.split(' '):
+        if 'Harden' in name.split(' ') and brand != 'Nike':
             type = 'Harden'
-        elif 'Curry' in name.split(' '):
+        elif 'Curry' in name.split(' ') and brand != 'Nike':
             type = 'Curry'
         elif 'PG' in name.split(' '):
             type = 'PG'
@@ -86,8 +84,10 @@ def run(dbname="shoebox.db"):
         yearLow = dcty[key]['year_low'].strip('$')
         new_yearLow = yearLow.replace(',','')
 
+        premium = price_premium(dcty[key]['retail_price'],dcty[key]['avg_sale_price'])
+
         # populate all values in parent_ingredients table
-        par_sql_values = (brand, dcty[key]['type'], name, dcty[key]['colorway'], dcty[key]['image'], 
+        par_sql_values = (brand, type, name, dcty[key]['colorway'], dcty[key]['image'], 
             dcty[key]['release_date'], new_retailPrice, dcty[key]['ticker'],total_sales, 
             dcty[key]['url'], new_yearHigh, new_yearLow,new_avgSalePrice,premium)
         cur.execute(PARENT_SQL, par_sql_values)

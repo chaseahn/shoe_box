@@ -17,7 +17,6 @@ def account():
             user = User({'username': session['username'], 'pk': session['pk'], 'age': session['age'], 'gender': session['gender']})
             favList = user.display_favorites()
             shoebox = user.display_shoebox()
-            print(shoebox)
             return render_template('private/account.html',message='Welcome '+session['username'],favList=favList,shoebox=shoebox)
         except KeyError:
             return redirect('/register')
