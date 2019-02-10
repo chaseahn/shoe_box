@@ -97,6 +97,7 @@ def update_shoe(name):
         sneaker.name           = sneaker.name
         sneaker.colorway       = sneaker.colorway 	
         sneaker.image          = sneaker.image  
+        sneaker.image_placeholder = sneaker.image_placeholder
         sneaker.release_date   = sneaker.release_date 
         sneaker.retail_price   = sneaker.retail_price
         sneaker.ticker         = sneaker.ticker 
@@ -114,7 +115,11 @@ def price_premium(retail,average):
     if retail == '--' or average == '--':
         return None
     else:
-        premium = round((((int(average)/int(retail))-1)*100),2)
+        fltRetail = float(retail)
+        fltAvg    = float(average)
+        difference = fltAvg - fltRetail
+        value = difference/fltRetail
+        premium = '{:.2f}'.format(value*100)
         return premium
 
 @elekid.route('/id/<shoeName>',methods=['GET','POST'])

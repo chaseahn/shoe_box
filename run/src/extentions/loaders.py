@@ -61,10 +61,10 @@ def shoes_like_list(shoename):
 
     if lessSpecific: 
         shuffle(like_list_minor)
-        return like_list_minor[:4]
+        return like_list_minor[:8]
     else: 
         shuffle(like_list_major)
-        return like_list_major[:4]
+        return like_list_major[:8]
 
 
 def search_terms(string,brand):

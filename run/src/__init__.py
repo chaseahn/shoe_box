@@ -106,18 +106,24 @@ def logout():
 def nike():
     brand = 'Nike'
     if request.method == 'GET':
+        sneaker = Sneaker()
         shoe_list = display_rand_shoes(brand,24)
         display_nums = disp_nums()
         display_vals = disp_vals()
-        return render_template('public/nike.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)
+        type_list = sneaker.get_types(brand)
+        return render_template('public/nike.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list, type_list=type_list)
     elif request.method == 'POST':
         if request.form['post_button'] == 'Filter':
+            sneaker = Sneaker()
 
             display_vals = disp_vals()
             display_nums = disp_nums()
+            type_list = sneaker.get_types(brand)
 
             value = request.form['val']
             num = request.form['num']
+            type = request.form['type']
+            print(type)
 
             black  = request.form.get('black')
             white  = request.form.get('white')
@@ -134,11 +140,10 @@ def nike():
             for x in range(l-1,-1,-1):
                 if colorList[x] is None:
                     colorList.pop(x)
+                    
+            shoe_list = sneaker.filter_by(brand, type, value, num, colorlist=colorList)
 
-            sneaker = Sneaker()
-            shoe_list = sneaker.filter_by(brand, value, num, colorlist=colorList)
-
-            return render_template('public/nike.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)
+            return render_template('public/nike.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list, type_list=type_list)
 
         elif request.form['post_button'] == 'Shuffle':
             return redirect('/nke')
@@ -165,6 +170,7 @@ def adidas():
             print(value)
             num = request.form['num']
             print(num)
+            type = request.form['type']
 
             black  = request.form.get('black')
             white  = request.form.get('white')
@@ -183,7 +189,7 @@ def adidas():
                     colorList.pop(x)
 
             sneaker = Sneaker()
-            shoe_list = sneaker.filter_by(brand, value, num, colorlist=colorList)
+            shoe_list = sneaker.filter_by(brand, type, value, num, colorlist=colorList)
             print(shoe_list)
 
             return render_template('public/adidas.html',display_nums=display_nums,display_vals=display_vals,shoe_list=shoe_list)

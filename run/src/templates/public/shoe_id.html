@@ -1,5 +1,14 @@
 {% extends "structure.html" %}
 {% block viewport %}
+
+<html>
+<head>
+  <title>{{shoename}}</title>
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+</head>
+<body>
+
 <style>
     .img {
         float: center;
@@ -103,24 +112,30 @@ input[type=submit]:hover {
         <input type="submit" value="Favorite" name="post_button">
     </form>
 </div>
-<div class="grid-container" style="grid-auto-flow: row;" align="center">
+
+<body>
+<div class="your-class">
     {% for shoe in likeShoes %}
     {% set filename = shoe +'.jpg' %}
-    <div class="grid-item" align="center">
         <a class="nl" href="/id/{{shoe}}">
-            <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height="120" width = "150">
+            <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height=100px>
         </a>
-        <div>
-            <font size="0.2" color="purple">{{shoe}}</font>
-        </div>
-    </div>
     {% endfor %}
-    </div>
 </div>
-<div class="body" align="center">
-    <p>
-        {{message}}
-    </p>
-</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.your-class').slick({
+        setting-name: setting-value
+      });
+    });
+</script>
+
+</body>
+</html>
 
 {% endblock %}

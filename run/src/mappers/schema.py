@@ -92,6 +92,7 @@ def run(dbname='shoebox.db'):
         name VARCHAR,
         colorway VARCHAR,
         image VARCHAR,
+        image_placeholder VARCHAR,
         release_date VARCHAR,
         retail_price INTEGER,
         ticker VARCHAR,
