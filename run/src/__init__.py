@@ -6,9 +6,9 @@ import time
 import sqlite3
 
 from flask import Flask, render_template, request, url_for, redirect,session
+from datetime import datetime
 from werkzeug.wsgi import DispatcherMiddleware
 from werkzeug.utils import secure_filename
-
 
 from .controllers.public  import elekid as public_buzz
 from .controllers.private import elekid as private_buzz
@@ -26,6 +26,11 @@ electabuzz.secret_key = 'SUPER-DUPER-SECRET'
 electabuzz.register_blueprint(public_buzz)
 electabuzz.register_blueprint(private_buzz)
 
+def get_current_date():
+    ts = time.time() 
+    time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    date = time.split(' ')[0]
+    return date
 
 def ages():
     age = []

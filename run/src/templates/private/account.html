@@ -4,47 +4,61 @@
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 60%;
+    width: 80%;
+
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #9653e0;
     text-align: left;
     padding: 8px;
   }
+
+  th {
+  background-color: #9653e8;
+  color: #97eff1;
+}
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #E6FDFF;
   }
   </style>
 
 <!DOCTYPE html>
 <div class="main" align="center">
 
-    <h2>HTML Table</h2>
+    <h2>Your ShoeBox</h2>
     <table>
       <tr>
-        <th>Type</th>
         <th>Date</th>
         <th>Ticker</th>
         <th>Shoe</th>
-        <th>Price Bought</th>
-        <th>Price Sold</th>
-        <th>Gain/Loss</th>
+        <th>Type</th>
+        <th>Retail Price</th>
+        <th>Buy Price</th>
+        <th>Buy Return ($)</th>
+        <th>Gain/Loss (Retail)</th>
+        <th>Sell Price</th>
+        <th>Profit</th>
+        <th>Gain/Loss (Profit)</th>
         <th>Update</th>
       </tr>
       {% for shoe in shoebox.keys() %}
       <tr>
-          <td>{{ shoebox[shoe]['type'] }}</td>
           <td>{{ shoebox[shoe]['date'] }}</td>
           <td>{{ shoebox[shoe]['ticker'] }}</td>
           <td>{{ shoebox[shoe]['shoename'] }}</td>
-          <td>{{ shoebox[shoe]['price_bought'] }}</td>
-          <td>{{ shoebox[shoe]['price_sold'] }}</td>
-          <td>{{ shoebox[shoe]['return'] }}</td>
+          <td>{{ shoebox[shoe]['type'] }}</td>
+          <td>${{ shoebox[shoe]['retail_price'] }}</td>
+          <td>${{ shoebox[shoe]['price_bought'] }}</td>
+          <td>{{ shoebox[shoe]['gain-loss-retail-dollar'] }}</td>
+          <td>{{ shoebox[shoe]['gain-loss-retail-percentage'] }}%</td>
+          <td>${{ shoebox[shoe]['price_sold'] }}</td>
+          <td>${{ shoebox[shoe]['profit'] }}</td>
+          <td>{{ shoebox[shoe]['gain-loss-profit'] }}%</td>
           <td>
-            <form action="" method="post" enctype="multipart/form-data">
-              <input type="submit" value="Update" name="post_button">
+            <form action="'/'" method="post" enctype="multipart/form-data">
+              <input type="submit" value="{{ shoebox[shoe]['pk'] }}" name="post_button">
             </form>
           </td>
       </tr>

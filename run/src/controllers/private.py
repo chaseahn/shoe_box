@@ -21,6 +21,6 @@ def account():
         except KeyError:
             return redirect('/register')
     elif request.method == 'POST':
-        pass
+        print(request.form['post_button'])
     else:
         pass

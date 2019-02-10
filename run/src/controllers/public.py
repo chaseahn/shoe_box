@@ -10,10 +10,11 @@ import random
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from datetime import datetime
 
 from flask import Blueprint,render_template,request,session,redirect,url_for
 
-from ..extentions.loaders import tsplit
+from ..extentions.loaders import tsplit, shoes_like_list
 from ..models.model import User,ShoeView,ShoeBox,Sneaker
 
 UPLOAD_FOLDER = '/Users/ahn.ch/Projects/shoe_data/run/src/static'
@@ -21,6 +22,12 @@ UPLOAD_FOLDER = '/Users/ahn.ch/Projects/shoe_data/run/src/static'
 elekid = Blueprint('public',__name__)
 
 path = '/Users/ahn.ch/Projects/shoe_data/run/src/json/total190120.json'
+
+def get_current_date():
+    ts = time.time() 
+    new_time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    date = new_time.split(' ')[0]
+    return date
 
 def open_shoe_data(shoe):
     with open(path) as file:
@@ -120,10 +127,10 @@ def id(shoeName):
             shoe.save(shoeName)
             update_shoe(shoeName)
             shoeData = Sneaker(name=shoeName)
-            print(shoeData)
             premium = price_premium(shoeData.retail_price,shoeData.avg_sale_price)
+            likeShoes = shoes_like_list(shoeName)
             return render_template('public/shoe_id.html',shoename=shoeName, 
-                shoeData=shoeData, message=user.username,premium=premium)
+                shoeData=shoeData, message=user.username,premium=premium, likeShoes=likeShoes)
         #Will load when user is not logged in
         except KeyError:
             shoe = ShoeView(shoename=shoeName)
@@ -131,6 +138,7 @@ def id(shoeName):
             update_shoe(shoeName)
             shoeData = Sneaker(name=shoeName)
             premium = price_premium(shoeData.retail_price,shoeData.avg_sale_price)
+            likeShoes = shoes_like_list(shoeName)
             return render_template('public/shoe_id.html',shoename=shoeName, 
                     shoeData=shoeData,premium=premium)
         except TypeError:
@@ -138,7 +146,7 @@ def id(shoeName):
             shoe.save(shoeName)
             update_shoe(shoeName)
             shoeData = Sneaker(name=shoeName)
-            print(shoeData)
+            likeShoes = shoes_like_list(shoeName)
             premium = price_premium(shoeData.retail_price,shoeData.avg_sale_price)
             return render_template('public/shoe_id.html',shoename=shoeName, 
                     shoeData=shoeData,premium=premium)
@@ -148,6 +156,7 @@ def id(shoeName):
             update_shoe(shoeName)
             shoeData = Sneaker(name=shoeName)
             premium = price_premium(shoeData.retail_price,shoeData.avg_sale_price)
+            likeShoes = shoes_like_list(shoeName)
             return render_template('public/shoe_id.html',shoename=shoeName, 
                     shoeData=shoeData,premium=premium)
     elif request.method == 'POST':
@@ -157,8 +166,9 @@ def id(shoeName):
                 shoeData = Sneaker(name=shoeName)
                 user.favoriteShoe(shoeName,user.pk)
                 premium = price_premium(shoeData.retail_price,shoeData.avg_sale_price)
+                likeShoes = shoes_like_list(shoeName)
                 return render_template('public/shoe_id.html',shoename=shoeName, 
-                        shoeData=shoeData,message='shoe saved',premium=premium)
+                        shoeData=shoeData,message='This Shoe Has Been Added To Your Account!',premium=premium, likeShoes=likeShoes)
             except KeyError:
                 shoeData = Sneaker(name=shoeName)
                 premium = price_premium(shoeData.retail_price,shoeData.avg_sale_price)
@@ -180,9 +190,10 @@ def add_buy(shoeName):
             user = User({'username': session['username'], 'pk': session['pk'], 'age': session['age'], 'gender': session['gender']})
             type = 'Buy'
             price_bought = request.form['price'].strip('$')
-            new_price_bought = float(price_bought.replace(',',''))
-            date = request.form['input']
-            user.add_to_box(type,shoeName,date,new_price_bought,user.pk)
+            new_price = float(price_bought.replace(',',''))
+            date = get_current_date()
+            profit = 0
+            user.add_to_box(type,shoeName,date,new_price,profit,user.pk)
             return redirect('/add/success')
         except ValueError:
             return render_template('public/add_buy.html',shoeName=shoeName, message="Enter a number.")
@@ -197,14 +208,23 @@ def add_sell(shoeName):
         return render_template('public/add_sell.html',shoeName=shoeName)
     elif request.method == 'POST':
         try:
+            sneaker = Sneaker(name=shoeName)
             user = User({'username': session['username'], 'pk': session['pk'], 'age': session['age'], 'gender': session['gender']})
+
             type = 'Sell'
+
             price_bought = request.form['price_bought'].strip('$')
-            new_price_bought = float(price_bought.replace(',',''))
+            new_price_bought = price_bought.replace(',','')
+            new_price_bought = float(new_price_bought)
+
             price_sold = request.form['price_sold'].strip('$')
             new_price_sold = float(price_sold.replace(',',''))
-            date = request.form['input']
-            user.add_to_box(type,shoeName,date,new_price_bought,user.pk,new_price_sold)
+
+            profit = new_price_sold - new_price_bought
+            print(sneaker.retail_price)
+
+            date = get_current_date()
+            user.add_to_box(type,shoeName,date,new_price_bought,profit,user.pk, new_price_sold)
             return redirect('/add/success')
         except ValueError:
             return render_template('public/add_sell.html',shoeName=shoeName, message="Enter a number.")

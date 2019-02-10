@@ -3,6 +3,7 @@
 import sqlite3
 import time
 
+from datetime import datetime
 from flask import session
 from random import randint
 from time import gmtime, strftime, sleep
@@ -22,6 +23,12 @@ def tsplit(string, delimiters):
             for j, _substring in enumerate(substack):
                 stack.insert(i+j, _substring)
     return stack
+
+def get_current_date():
+    ts = time.time() 
+    time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    date = time.split(' ')[0]
+    return date
 
 class User:
     def __init__(self, row={}, username='', password=''):
@@ -136,14 +143,21 @@ class User:
                 sneaker = Sneaker(name=rows['shoename'])
                 value = float(sneaker.avg_sale_price)
 
+                if sneaker.retail_price == '--':
+                    sneaker.retail_price = sneaker.avg_sale_price
+
                 shoebox[key] = {
                     'shoename': rows['shoename'],
                     'ticker': rows['ticker'],
                     'type': rows['type'],
                     'date': rows['date'],
                     'price_bought': rows['price_bought'],
+                    'gain-loss-retail-dollar': sneaker.retail_price-float(rows['price_bought']),
+                    'gain-loss-retail-percentage': '{:.2f}'.format(float(((sneaker.retail_price-float(rows['price_bought']))/float(rows['price_bought'])*100))),
+                    'retail_price': sneaker.retail_price,
                     'price_sold': rows['price_sold'],
-                    'return': round(((value-float(rows['price_bought']))/value),2),
+                    'gain-loss-profit': round(float(rows['profit'])/float(rows['price_bought']),2)*100,
+                    'profit': rows['profit'],
                     'pk': rows['pk']
                 }
                 
@@ -172,7 +186,7 @@ class User:
         userPref.user_pk = pk
         userPref.save()
     
-    def add_to_box(self,type,shoename,date,price_bought,pk,price_sold=''):
+    def add_to_box(self,type,shoename,date,price_bought, profit, pk, price_sold=''):
 
         sneaker = Sneaker(name=shoename)
 
@@ -184,6 +198,7 @@ class User:
             box.date = date
             box.price_bought = price_bought
             box.price_sold = 0
+            box.profit = 0
             box.user_pk = pk
             box.save()
         else:
@@ -194,6 +209,7 @@ class User:
             box.date = date
             box.price_bought = price_bought
             box.price_sold = price_sold
+            box.profit = profit
             box.user_pk = pk
             box.save()
     
@@ -210,6 +226,21 @@ class User:
             return [brands,colors]
         else:
             return False
+
+    # def get_like_accounts(self):
+    #     with OpenCursor() as cur:
+    #         SQL = """ SELECT * FROM user_preferences WHERE
+    #               user_pk=?; """
+    #         val = (self.pk,)
+    #         cur.execute(SQL,val)
+    #         row = cur.fetchone()
+    #     if row:
+    #         brands = row['brand'].split('-')
+    #         colors = row['color'].split('-')
+    #         return [brands,colors]
+    #     else:
+    #         return False
+
 
 class ShoeView:
 
@@ -347,6 +378,7 @@ class ShoeBox:
         self.date         = row.get('date')
         self.price_bought = row.get('price_bought')
         self.price_sold   = row.get('price_sold')
+        self.profit       = row.get('profit')
         self.user_pk      = row.get('user_pk')
 
     def __bool__(self):
@@ -354,18 +386,19 @@ class ShoeBox:
     
     def save(self):
         if self:
+            date = get_current_date()
             with OpenCursor() as cur:
                 SQL = """ UPDATE shoebox SET 
-                    shoename=?, ticker=?, type=?, date=?, price_bought=?, price_sold=?, user_pk=?
+                    shoename=?, ticker=?, type=?, date=?, price_bought=?, price_sold=?, profit=?, user_pk=?
                     WHERE shoename=?; """
-                val = (self.shoename, self.ticker, self.type, self.date, self.price_bought, self.price_sold, self.user_pk)
+                val = (self.shoename, self.ticker, self.type, date, self.price_bought, self.price_sold, self.profit, self.user_pk)
                 cur.execute(SQL, val)
         else:
             with OpenCursor() as cur:
                 SQL = """ INSERT INTO shoebox (
-                    shoename, ticker, type, date, price_bought, price_sold, user_pk)
-                    VALUES (?, ?, ?, ?, ?, ?, ?); """
-                val = (self.shoename, self.ticker, self.type, self.date, self.price_bought, self.price_sold, self.user_pk)
+                    shoename, ticker, type, date, price_bought, price_sold, profit, user_pk)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?); """
+                val = (self.shoename, self.ticker, self.type, self.date, self.price_bought, self.price_sold, self.profit, self.user_pk)
                 cur.execute(SQL, val)
                 self.pk = cur.lastrowid
 

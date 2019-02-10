@@ -76,8 +76,9 @@ def run(dbname='shoebox.db'):
         ticker VARCHAR,
         type VARCHAR,
         date INTEGER,
-        price_bought VARCHAR,
-        price_sold VARCHAR,
+        price_bought INTEGER,
+        price_sold INTEGER,
+        profit INTEGER,
         user_pk INTEGER,
         FOREIGN KEY(user_pk) REFERENCES user(pk)
     );""")

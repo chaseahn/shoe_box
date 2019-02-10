@@ -11,8 +11,8 @@ import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from random import randint
+from random import shuffle
 
-from ..mappers.opencursor import OpenCursor
 from ..models.model import Sneaker
 
 path = 'run/src/json/total190120.json'
@@ -35,8 +35,36 @@ def tsplit(string, delimiters):
 def color_list():
     sneaker = Sneaker()
     colorlist = sneaker.get_color_list()
-    print(colorlist)
 
+def shoes_like_list(shoename):
+    sneaker = Sneaker()
+    shoe_list = sneaker.get_shoes('all')
+    like_list_major, like_list_minor = [], []
+    for shoe in shoe_list: 
+        ignoreList = [ 'of', 'a', 'the', 'air', 'nike', 'adidas', 'jordan', 'red', 'white', 'black', 'green', 'blue', 'pink', 'gum', 'yellow' ]
+        searchShoe = shoename.lower().split(' ')
+        likeShoe = shoe.lower().split(' ')
+        x = 0
+        lessSpecific = True
+        for terms in searchShoe:
+            if terms in ignoreList:
+                pass
+            elif terms in likeShoe:
+                x += 1
+            else:
+                pass
+        if x >= 4:
+            lessSpecific = False
+            like_list_major.append(shoe)
+        if 1 < x < 4:
+            like_list_minor.append(shoe)
+
+    if lessSpecific: 
+        shuffle(like_list_minor)
+        return like_list_minor[:4]
+    else: 
+        shuffle(like_list_major)
+        return like_list_major[:4]
 
 
 def search_terms(string,brand):
@@ -94,25 +122,12 @@ def brander(brand):
         print('Brand not recognized. Try searching "Others"?')
         return False
 
-def display_rand_shoes(brand,disp_num):
+def display_rand_shoes(brand,num):
 
     sneaker = Sneaker() 
     shoe_list = sneaker.get_shoes(brand)
-    
-    rand_shoe_list = []
-    x = 0
-    while x < int(disp_num):
-        i = random.randint(1,len(shoe_list))
-        try:
-            if shoe_list[i] not in rand_shoe_list:
-                rand_shoe_list.append(shoe_list[i])
-                x += 1
-            else:
-                pass
-        except IndexError:
-            pass
-    """ GENERATE RANDOM LIST OF SHOE NAMES """
-    return rand_shoe_list
+    shuffle(shoe_list)
+    return shoe_list[:int(num)]
     
 
 def shoeValues(list,val,par):
