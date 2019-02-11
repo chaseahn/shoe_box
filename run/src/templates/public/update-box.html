@@ -36,32 +36,25 @@ input[type=submit]:hover {
 </style>
 
 <div class="main" align="center">
+    <h1>CHANGE THIS TO UPDATE</h1>
     <img type="image" src="{{ url_for('static', filename='adding_text.png') }}" alt="Register" width="280" height="70">
 </div>
 <div class="body" align="center">
     {% set filename = shoeName +'.jpg' %}
     <div style="float: middle; display: inline-block;">
-        <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width=40%>
+        <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width=60%>
     </div>
 </div>
-<form action="/add-sell/{{shoeName}}" method="post" enctype="multipart/form-data">
+<form action="/update-box/{{box_pk}}/{{shoeName}}" method="post" enctype="multipart/form-data">
 <div class="body" align="center">
     <div>
-        <a href="/add-buy/{{shoeName}}">
-            <img type="image" src="{{ url_for('static', filename='buy_button.png') }}" alt="Register" width="100" height="35">
-        </a>
-        <a href="/add-sell/{{shoeName}}">
-            <img type="image" src="{{ url_for('static', filename='sell_button.png') }}" alt="Register" width="100" height="35">
-        </a>
+        <input name="price_bought" type="text" placeholder="Price Bought">
     </div>
     <div>
-        <input name="price_bought" type="text" placeholder="Price Bought" autofocus required>
+        <input name="price_sold" type="text" placeholder="Price Sold">
     </div>
-    <div>
-        <input name="price_sold" type="text" placeholder="Price Sold" autofocus required>
-    </div>
-    <input type="submit" value="Add to Shoebox">
+    <input type="submit" value="Update Shoebox">
 </div>
 </form>
 <h3>{{ message }}</h3>
-    {% endblock %}
+{% endblock %}

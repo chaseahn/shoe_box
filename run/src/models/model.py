@@ -26,8 +26,8 @@ def tsplit(string, delimiters):
 
 def get_current_date():
     ts = time.time() 
-    time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-    date = time.split(' ')[0]
+    new_time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    date = new_time.split(' ')[0]
     return date
 
 class User:
@@ -153,10 +153,13 @@ class User:
                     'date': rows['date'],
                     'price_bought': rows['price_bought'],
                     'gain-loss-retail-dollar': sneaker.retail_price-float(rows['price_bought']),
-                    'gain-loss-retail-percentage': '{:.2f}'.format(float(((sneaker.retail_price-float(rows['price_bought']))/float(rows['price_bought'])*100))),
+                    'gain-loss-market-dollar': sneaker.avg_sale_price-float(rows['price_bought']),
+                    'gain-loss-retail-percentage': '{:.2f}'.format(float(((float(sneaker.retail_price)-float(rows['price_bought']))/float(sneaker.retail_price)*100))),
                     'retail_price': sneaker.retail_price,
+                    'value': sneaker.avg_sale_price,
+                    'gain-loss-market-percentage':'{:.2f}'.format(float(((float(sneaker.avg_sale_price)-float(rows['price_bought']))/float(sneaker.retail_price)*100))),
                     'price_sold': rows['price_sold'],
-                    'gain-loss-profit': round(float(rows['profit'])/float(rows['price_bought']),2)*100,
+                    'gain-loss-profit': '{:.2f}'.format((float(rows['profit'])/float(rows['price_bought'])*100)),
                     'profit': rows['profit'],
                     'pk': rows['pk']
                 }
@@ -212,6 +215,46 @@ class User:
             box.profit = profit
             box.user_pk = pk
             box.save()
+    
+    def update_shoebox(self, box_pk, type, price_bought, price_sold, profit, user_pk):
+        if type == 'SELL':
+            box = ShoeBox(pk=box_pk)
+            box.pk = box.pk
+            box.shoename = box.shoename
+            box.ticker = box.ticker
+            box.type = type
+            box.date = box.date
+            box.price_bought = price_bought
+            box.price_sold = price_sold
+            box.profit = profit
+            box.user_pk = user_pk
+            box.save()
+        else:
+            box = ShoeBox(pk=box_pk)
+            if price_sold == '0':
+                box = ShoeBox(pk=box_pk)
+                box.pk
+                box.shoename = box.shoename
+                box.ticker = box.ticker
+                box.type = 'BUY'
+                box.date = box.date
+                box.price_bought = price_bought
+                box.price_sold = 0
+                box.profit = 0
+                box.user_pk = user_pk
+                box.save()
+            else:
+                box = ShoeBox(pk=box_pk)
+                box.pk = box.pk
+                box.shoename = box.shoename
+                box.ticker = box.ticker
+                box.type = 'SELL'
+                box.date = box.date
+                box.price_bought = price_bought
+                box.price_sold = price_sold
+                box.profit = profit
+                box.user_pk = user_pk
+                box.save()
     
     def get_preferences(self):
         with OpenCursor() as cur:
@@ -369,7 +412,28 @@ class UserPreferences:
 
 class ShoeBox:
 
-    def __init__(self, row={}):
+    def __init__(self, row={}, pk=''):
+        if pk:
+            self.check_box(pk)
+        else:
+            self.row_set(row)
+
+    def __bool__(self):
+        return bool(self.pk)
+
+    def check_box(self,pk):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM shoebox WHERE
+                  pk=?; """
+            val = (pk,)
+            cur.execute(SQL,val)
+            row = cur.fetchone()
+        if row:
+            self.row_set(row)
+        else:
+            self.row_set({})
+
+    def row_set(self,row={}):
         row               = dict(row)
         self.pk           = row.get('pk')
         self.shoename     = row.get('shoename')
@@ -380,9 +444,6 @@ class ShoeBox:
         self.price_sold   = row.get('price_sold')
         self.profit       = row.get('profit')
         self.user_pk      = row.get('user_pk')
-
-    def __bool__(self):
-        return bool(self.pk)
     
     def save(self):
         if self:
@@ -390,8 +451,8 @@ class ShoeBox:
             with OpenCursor() as cur:
                 SQL = """ UPDATE shoebox SET 
                     shoename=?, ticker=?, type=?, date=?, price_bought=?, price_sold=?, profit=?, user_pk=?
-                    WHERE shoename=?; """
-                val = (self.shoename, self.ticker, self.type, date, self.price_bought, self.price_sold, self.profit, self.user_pk)
+                    WHERE pk=?; """
+                val = (self.shoename, self.ticker, self.type, date, self.price_bought, self.price_sold, self.profit, self.user_pk, self.pk)
                 cur.execute(SQL, val)
         else:
             with OpenCursor() as cur:

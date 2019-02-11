@@ -236,6 +236,32 @@ def add_sell(shoeName):
     else:
         pass
 
+@elekid.route('/update-box/<box_pk>/<shoeName>',methods=['GET','POST'])
+def update_box(shoeName,box_pk):
+    shoeName=shoeName
+    if request.method == 'GET':
+        user = User({'username': session['username'], 'pk': session['pk'], 'age': session['age'], 'gender': session['gender']})
+        return render_template('public/update-box.html',shoeName=shoeName, box_pk=box_pk)
+    elif request.method == 'POST':
+        try:
+            box = ShoeBox(pk=box_pk)
+            user = User({'username': session['username'], 'pk': session['pk'], 'age': session['age'], 'gender': session['gender']})
+
+            price_bought = request.form['price_bought'].strip('$')
+            new_price_bought = price_bought.replace(',','')
+            new_price_bought = float(new_price_bought)
+
+            price_sold = request.form['price_sold'].strip('$')
+            new_price_sold = float(price_sold.replace(',',''))
+            type = box.type
+            profit = new_price_sold - new_price_bought
+            user.update_shoebox(box_pk, type, price_bought, price_sold, profit, user.pk)
+            return redirect('/add/success')
+        except ValueError:
+            return render_template('public/add_sell.html',shoeName=shoeName, box_pk=box_pk, message="Enter a number.")
+    else:
+        pass
+
 @elekid.route('/add/success',methods=['GET','POST'])
 def add_success():
     if request.method == 'GET':

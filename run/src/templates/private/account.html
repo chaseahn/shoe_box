@@ -12,6 +12,7 @@
     border: 1px solid #9653e0;
     text-align: left;
     padding: 8px;
+
   }
 
   th {
@@ -28,40 +29,63 @@
 <div class="main" align="center">
 
     <h2>Your ShoeBox</h2>
+    <font size="2" face="Courier New" >
     <table>
       <tr>
         <th>Date</th>
+        <th>Image</th>
         <th>Ticker</th>
         <th>Shoe</th>
         <th>Type</th>
-        <th>Retail Price</th>
         <th>Buy Price</th>
-        <th>Buy Return ($)</th>
+        <th>Retail Price</th>
+        <th>Market Price</th>
+        <th>Retail Return ($)</th>
+        <th>Market Return ($)</th>
         <th>Gain/Loss (Retail)</th>
+        <th>Gain/Loss (Market)</th>
         <th>Sell Price</th>
-        <th>Profit</th>
+        <th>Profit ($)</th>
         <th>Gain/Loss (Profit)</th>
         <th>Update</th>
+        <th>Remove</th>
       </tr>
       {% for shoe in shoebox.keys() %}
       <tr>
           <td>{{ shoebox[shoe]['date'] }}</td>
+          <td>
+              {% set filename = shoebox[shoe]['shoename'] +'.jpg' %}
+              <div style="float: middle; display: inline-block;">
+                  <a href="/id/{{shoebox[shoe]['shoename']}}">
+                      <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="50">
+                  </a>
+              </div>
+          </td>
           <td>{{ shoebox[shoe]['ticker'] }}</td>
           <td>{{ shoebox[shoe]['shoename'] }}</td>
           <td>{{ shoebox[shoe]['type'] }}</td>
-          <td>${{ shoebox[shoe]['retail_price'] }}</td>
           <td>${{ shoebox[shoe]['price_bought'] }}</td>
+          <td>${{ shoebox[shoe]['retail_price'] }}</td>
+          <td>${{ shoebox[shoe]['value'] }}</td>
           <td>{{ shoebox[shoe]['gain-loss-retail-dollar'] }}</td>
+          <td>{{ shoebox[shoe]['gain-loss-market-dollar'] }}</td>
           <td>{{ shoebox[shoe]['gain-loss-retail-percentage'] }}%</td>
+          <td>{{ shoebox[shoe]['gain-loss-market-percentage'] }}%</td>
           <td>${{ shoebox[shoe]['price_sold'] }}</td>
-          <td>${{ shoebox[shoe]['profit'] }}</td>
+          <td>{{ shoebox[shoe]['profit'] }}</td>
           <td>{{ shoebox[shoe]['gain-loss-profit'] }}%</td>
           <td>
-            <form action="'/'" method="post" enctype="multipart/form-data">
-              <input type="submit" value="{{ shoebox[shoe]['pk'] }}" name="post_button">
+            <form action="/2492/account" method="post" enctype="multipart/form-data">
+              <button type="submit" value="Update-{{ shoebox[shoe]['pk'] }}" name="post_button">Update</button>
+            </form>
+          </td>
+          <td>
+            <form action="/2492/account" method="post" enctype="multipart/form-data">
+              <button type="submit" value="Remove-{{ shoebox[shoe]['pk'] }}" name="post_button">Remove</button>
             </form>
           </td>
       </tr>
+    </font>
       {% endfor %}
     </table>
     <h3>{{ message }}</h3>

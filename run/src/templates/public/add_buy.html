@@ -41,7 +41,7 @@ input[type=submit]:hover {
 <div class="body" align="center">
     {% set filename = shoeName +'.jpg' %}
     <div style="float: middle; display: inline-block;">
-        <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width=60%>
+        <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width=40%>
     </div>
 </div>
 <form action="/add-buy/{{shoeName}}" method="post" enctype="multipart/form-data">
