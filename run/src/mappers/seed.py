@@ -74,6 +74,8 @@ def run(dbname="shoebox.db"):
             type = 'Kyrie'
         elif 'Dame' in name.split(' '):
             type = 'Dame'
+        elif 'React' in name.split(' '):
+            type = 'React'
         else:
             type = dcty[key]['type']
 

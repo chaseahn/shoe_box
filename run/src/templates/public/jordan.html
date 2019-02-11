@@ -121,6 +121,12 @@
 <div class = "main" align="center">
     <div class="box">
         <form action="/jrd" method="post" enctype="multipart/form-data">
+        <font>Types</font>
+        <select name="type" method="post" action="/jrd">
+            {% for type in type_list %}
+            <option value= "{{type}}">{{type}}</option>"
+            {% endfor %}
+        </select>
         <font>Sort By</font>
         <select name="val" method="post" action="/jrd">
             {% for val in display_vals %}
