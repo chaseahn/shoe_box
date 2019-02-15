@@ -432,6 +432,13 @@ class ShoeBox:
             self.row_set(row)
         else:
             self.row_set({})
+    
+    def remove(self, pk):
+        with OpenCursor() as cur:
+            SQL = """ DELETE FROM shoebox WHERE
+                  pk=?; """
+            val = (pk,)
+            cur.execute(SQL,val)
 
     def row_set(self,row={}):
         row               = dict(row)
@@ -514,6 +521,18 @@ class Sneaker:
             self.row_set(row)
         else:
             self.row_set({})
+    
+    def existing(self,name):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM sneakers WHERE
+                  name=?; """
+            val = (name,)
+            cur.execute(SQL,val)
+            row = cur.fetchone()
+        if row:
+            return True
+        else:
+            return False
     
     def get_shoes(self,brand):
         brand = brand.capitalize()
@@ -874,7 +893,7 @@ class Sneaker:
             with OpenCursor() as cur:
                 SQL = """ INSERT INTO sneakers (
                     brand, type, name, colorway, image, image_placeholder, release_date, retail_price, ticker, total_sales, url, year_high, year_low, avg_sale_price, premium)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); """
-                val = (self.brand, self.name, self.colorway, self.image, self.image_placeholder, self.release_date, self.retail_price, self.style, self.ticker, self.total_sales, self.url, self.year_high, self.year_low, self.avg_sale_price, self.premium)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); """
+                val = (self.brand, self.type, self.name, self.colorway, self.image, self.image_placeholder, self.release_date, self.retail_price, self.ticker, self.total_sales, self.url, self.year_high, self.year_low, self.avg_sale_price, self.premium)
                 cur.execute(SQL, val)
                 self.pk = cur.lastrowid
