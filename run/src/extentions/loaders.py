@@ -38,7 +38,7 @@ def color_list():
 
 def shoes_like_list(shoename):
     sneaker = Sneaker()
-    shoe_list = sneaker.get_shoes('all')
+    shoe_list = sneaker.get_shoes_no_placeholder('all')
     like_list_major, like_list_minor = [], []
     for shoe in shoe_list: 
         ignoreList = [ 'of', 'a', 'the', 'air', 'nike', 'adidas', 'jordan', 'red', 'white', 'black', 'green', 'blue', 'pink', 'gum', 'yellow' ]
@@ -61,10 +61,10 @@ def shoes_like_list(shoename):
 
     if lessSpecific: 
         shuffle(like_list_minor)
-        return like_list_minor[:8]
+        return like_list_minor[:4]
     else: 
         shuffle(like_list_major)
-        return like_list_major[:8]
+        return like_list_major[:4]
 
 
 def search_terms(string,brand):
@@ -125,7 +125,7 @@ def brander(brand):
 def display_rand_shoes(brand,num):
 
     sneaker = Sneaker() 
-    shoe_list = sneaker.get_shoes(brand)
+    shoe_list = sneaker.get_shoes_no_placeholder(brand)
     shuffle(shoe_list)
     return shoe_list[:int(num)]
     

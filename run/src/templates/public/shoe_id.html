@@ -8,41 +8,64 @@
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 <body>
+    <style>
+        html{ 
+          padding-bottom: 400px;
+        }
+        .nl {
+        text-decoration:none;
+        }
+        .box {
+        display: block;
+        position: relative;
+        width: 30%;
+        padding: 10px;
+        border: 5px solid rgb(170, 24, 214);
+        opacity: 0;
+        z-index: 0;
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: 16% 16% 16% 16%;
+          grid-gap: 10px;
+          padding: 10px;
+          height: 10%;
+          margin-left: 120px;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 25px;
+        }
+        .grid-item {
+          background-color: white;
+          border: 3px solid #bb14c5; 
+          padding: 40px;
+          font-size: 30px;
+          text-align: center;
+        }
+</style>    
 
 <style>
     .img {
         float: center;
         height: auto; 
         width: auto; 
-        max-width: 700px; 
-        max-height: 700px;
+        max-width: 550px; 
+        max-height: 550px;
     }
-    .nl {
-    text-decoration:none;
+
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 900px; /* You must set a specified height */
+        background-image: url("{{ url_for('static', filename='id_bg.png') }}");
     }
-    .box {
-    display: block;
-    position: relative;
-    width: 30%;
-    padding: 10px;
-    border: .2px solid rgb(170, 24, 214);
-    background-color: rgb(230, 230, 230);
-    z-index: 0;
-    }
-    .grid-container {
-      display: grid;
-      grid-template-columns: 25%,25%,25%,25%;
-      grid-gap: 1px;
-      background-color: white;
-      padding: 10px;
-      margin-left: 160px;
-    }
-    .grid-item {
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 0.5px solid rgb(141, 33, 184); 
-      padding: 5px;
-      font-size: 30px;
-      text-align: center;
+
+    .push {
+      margin-top: 40px;
+      margin-left: 140px; /* Add a top margin to avoid content overlay */
+      margin-bottom: 30px;
     }
 </style>
 <style>
@@ -82,9 +105,9 @@ input[type=submit]:hover {
 <div class="main" align="center">
     <h1>{{shoename}}</h1>
 </div>
-<div class="body" align="center">
+<div class="push" align="center">
     {% set filename = shoename+'.jpg' %}
-    <img class="img" type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}">
+    <img class="img" type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height=20%>
 </div>
 <div class="body" align="center">
     <table>
@@ -114,26 +137,24 @@ input[type=submit]:hover {
 </div>
 
 <body>
-<div class="your-class">
-    {% for shoe in likeShoes %}
-    {% set filename = shoe +'.jpg' %}
-        <a class="nl" href="/id/{{shoe}}">
-            <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height=100px>
-        </a>
-    {% endfor %}
-</div>
+    <div class="body" align="center">
+        <img class="img" type="image" src="{{ url_for('static', filename='similar.png') }}" height=5%>
+    </div>
+    <div class="grid-container" style="grid-auto-flow: row;" align="center">
+        {% for shoe in likeShoes %}
+        {% set filename = shoe +'.jpg' %}
+        <div class="grid-item">
+            <a class="nl" href="/id/{{shoe}}">
+                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height="120" width = "150">
+            </a>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+    <p></p>
+    <p></p>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('.your-class').slick({
-        setting-name: setting-value
-      });
-    });
-</script>
 
 </body>
 </html>

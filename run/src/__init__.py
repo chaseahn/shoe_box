@@ -55,7 +55,7 @@ def index():
         sneakerNum = sneaker.get_total_sneakers()
         sneakerSales = sneaker.get_total_sales()
         sneakerValue = sneaker.get_total_value()
-        return render_template('public/index.html',trendList=trendList, num=sneakerNum, sale=sneakerSales, value=sneakerValue)
+        return render_template('public/index.html',trendList=trendList, num=f"{sneakerNum:,d}", sale=f"{sneakerSales:,d}", value=f"{sneakerValue:,d}")
     elif request.method == 'POST':
         if request.form['post_button'] == 'Login':
             try:

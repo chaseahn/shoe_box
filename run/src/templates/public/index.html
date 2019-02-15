@@ -4,26 +4,58 @@
 
 <!DOCTYPE html>
 <style> 
-        input[type=search_text] {
-          width: 200px;
-          box-sizing: border-box;
-          border: 2px solid #ccc;
-          border-radius: 4px;
-          font-size: 16px;
-          background-color: #9653e8;
-          background-image: url('searchicon.png');
-          background-position: 10px 10px; 
-          background-repeat: no-repeat;
-          padding: 12px 20px 12px 20px;
-          -webkit-transition: width 0.4s ease-in-out;
-          transition: width 0.4s ease-in-out;
-          margin-bottom: 35px;
+    html{ 
+          padding-bottom: 400px;
         }
-        
-        input[type=search_text]:focus {
-          width: 40%;
-          color: white;
-        }
+
+    .push {
+      margin-top: 110px;
+      margin-left: 140px; /* Add a top margin to avoid content overlay */
+      margin-bottom: 30px;
+    }
+
+    .body-push {
+      margin-top: 80px;
+      margin-left: 140px; /* Add a top margin to avoid content overlay */
+      margin-bottom: 30px;
+    }
+
+    .img-push {
+      margin-top: 40px;
+      margin-left: 140px; /* Add a top margin to avoid content overlay */
+      margin-bottom: 30px;
+    }
+
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 900px; /* You must set a specified height */
+        background-image: url({{ url_for('static', filename='bg51.png') }});
+
+    }
+
+    input[type=search_text] {
+        width: 200px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: #9653e8;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 20px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        margin-bottom: 35px;
+    }
+
+    input[type=search_text]:focus {
+        width: 40%;
+        color: white;
+    }
 </style>
 <style>
 
@@ -40,15 +72,6 @@
 	visibility: hidden;
 }
 
-.vertical-divider .column:not(:first-child):after, .vertical-divider .columns:not(:first-child):after{
-	background: #DDDDDD;
-	bottom: 0;
-	content: " ";
-	margin-left: -160px;
-	position: absolute;
-	top: 0;
-	width: 1px;
-}
 
 /* Very simple grid for example */
 .container { position: relative; width: 960px; margin: 20px auto; padding: 0;}
@@ -58,10 +81,42 @@
 .container .one-third.column { width: 300px; }
 
 .container .two-thirds.column { width: 620px; }
-</style>
 
-<div class="main" align="center">
-    <img class="img" type="image" src="{{ url_for('static', filename='index_header.png') }}" title="trending" width=30%>
+
+</style>
+<style>
+        .nl {
+        text-decoration:none;
+        }
+        .box {
+        display: block;
+        position: relative;
+        width: 30%;
+        padding: 10px;
+        border: 5px solid rgb(170, 24, 214);
+        opacity: 0;
+        z-index: 0;
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: 16% 16% 16% 16% 16% 16%;
+          grid-gap: 10px;
+          padding: 10px;
+          height: 10%;
+          margin-left: 160px;
+          padding-bottom: 100px;
+        }
+        .grid-item {
+          background-color: white;
+          border: 3px solid #bb14c5; 
+          padding: 5px;
+          font-size: 30px;
+          text-align: center;
+        }
+</style>    
+<body>
+<div class="push" align="center">
+    <img class="img" type="image" src="{{ url_for('static', filename='headerindex.png') }}" title="trending" width=60%>
 </div>
 
 <div class="body" align="center">
@@ -70,45 +125,49 @@
     </form>
 </div>
 
-<div class="body" align="center">
+<div class="img-push" align="center">
     <a href="/chartzard">
-        <img class="img" type="image" src="{{ url_for('static', filename='index_data.png') }}" title="trending" width="440" style="box-shadow: 3px 1px 20px rgb(185, 185, 185);">
+        <img class="img" type="image" src="{{ url_for('static', filename='data.png') }}" title="trending" width="440">
     </a>
-        <img class="img" type="image" src="{{ url_for('static', filename='index_finder.png') }}" title="trending" width="440" style="box-shadow: 3px 1px 20px rgb(185, 185, 185);">
-        <img class="img" type="image" src="{{ url_for('static', filename='index_global.png') }}" title="trending" width="440" style="box-shadow: 3px 1px 20px rgb(185, 185, 185);">
+        <img class="img" type="image" src="{{ url_for('static', filename='finder.png') }}" title="trending" width="440">
+        <img class="img" type="image" src="{{ url_for('static', filename='global.png') }}" title="trending" width="440">
 </div>
-<div class="body" align="center">
+<div class="body-push" align="center">
         <div class="container vertical-divider">
                 <div class="column one-third">
-                  <h3># of Shoes</h3>
-                  <p>{{num}}</p>
+                  <img src="{{ url_for('static', filename='num_shoes.png') }}" width=90%>
+                  <font size="15" color="#bb14c5">{{num}}</font>
                 </div>
                 <div class="column one-third">
-                  <h3>Known Sales</h3>
-                  <p>{{sale}}</p>
+                  <img src="{{ url_for('static', filename='total_sales.png') }}" width=90%>
+                  <font size="15" color="#ffce09">{{sale}}</font>
                 </div>
                 <div class="column one-third">
-                  <h3>Total Value</h3>
-                  <p>{{value}}</p>
+                  <img src="{{ url_for('static', filename='total_revenue.png') }}" width=90%>
+                  <font size="15" color="#00fd43">${{value}}</font>
                 </div>
               </div>
         </div>
 <p>
-        <div class="body" align="center">
-            <img class="img" type="image" src="{{ url_for('static', filename='whats_trending.png') }}" title="trending" width=33%>
+        <div class="img-push" align="center">
+            <img class="img" type="image" src="{{ url_for('static', filename='cur_trend.png') }}" title="trending" width=33%>
         </div>
     </p>
-<div class="body" align="center">
-    {% for trends in trendList %}
-    {% set filename = trends +'.jpg' %}
-        <div style="float: middle; display: inline-block;">
-            <a href="/id/{{trends}}">
-                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="140" height="100">
-            </a>
+    <div class="grid-container" style="grid-auto-flow: row;" align="center">
+            {% for shoe in trendList %}
+            {% set filename = shoe +'.jpg' %}
+            <div class="grid-item">
+                <a class="nl" href="/id/{{shoe}}">
+                    <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height="120" width = "150">
+                </a>
+                <div>
+                    <font size="0.2" color="purple">{{shoe}}</font>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
         </div>
-    {% endfor %}
-</div>
-
+</body>
 
 
 {% endblock %}

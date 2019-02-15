@@ -314,7 +314,7 @@ class ShoeView:
     def trending_list(self):
         with OpenCursor() as cur:
             SQL = """ SELECT shoename FROM shoes_viewed 
-            ORDER BY click_count DESC limit 40; """
+            ORDER BY click_count DESC limit 12; """
             cur.execute(SQL)
             data = cur.fetchall()
             trending_list=[]
@@ -553,6 +553,37 @@ class Sneaker:
             with OpenCursor() as cur:
                 SQL = """ SELECT * FROM sneakers WHERE brand = ?; """
                 val = (brand,)
+                cur.execute(SQL,val)
+                data = cur.fetchall()
+                if data:
+                    shoes = []
+                    for row in data:
+                        shoes.append(row['name'])
+                    return shoes
+                else:
+                    shoes = []
+                    return []
+
+    def get_shoes_no_placeholder(self,brand):
+        brand = brand.capitalize()
+        if brand == 'All':
+            with OpenCursor() as cur:
+                SQL = """ SELECT * FROM sneakers WHERE image_placeholder=?; """
+                val = ('NO',)
+                cur.execute(SQL,val)
+                data = cur.fetchall()
+                if data:
+                    shoes = []
+                    for row in data:
+                        shoes.append(row['name'])
+                    return shoes
+                else:
+                    shoes = []
+                    return []
+        else:
+            with OpenCursor() as cur:
+                SQL = """ SELECT * FROM sneakers WHERE brand = ? and image_placeholder=?; """
+                val = (brand,'NO')
                 cur.execute(SQL,val)
                 data = cur.fetchall()
                 if data:
