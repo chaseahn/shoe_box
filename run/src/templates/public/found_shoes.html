@@ -70,6 +70,14 @@ input[type=submit]:hover {
           <font size="2" color="purple">{{shoe}}</font>
         </div>
         <div>
+          <font size="2" color="black">Value: </font>
+          <font size="2" color="green">${{shoeData[shoe]['value']}}</font>
+        </div>
+        <div>
+          <font size="2" color="black">Premium: </font>
+          <font size="2" color="green">{{shoeData[shoe]['premium']}}%</font>
+        </div>
+        <div>
             <button type="submit" value="{{shoe}}" name="post_button">Dont' Like</button>
         </div>
 

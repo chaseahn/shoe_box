@@ -703,6 +703,7 @@ class Sneaker:
                     for shoe in shoes:
                         if shoe in no_list:
                             shoes.remove(shoe)
+                            print(shoe)
                     return shoes[:10]
                     print('2')
 
@@ -730,8 +731,15 @@ class Sneaker:
                                     pass
                                 elif color.capitalize() in colorway and _min < row['avg_sale_price'] < _max:
                                     shoes.append(row['name'])
-                    print(shoes[:10])
-                    return shoes[:10]
+                    if no_list == []:
+                        return shoes[:10]
+                        print('3')
+                    else:    
+                        for shoe in shoes:
+                            if shoe in no_list:
+                                shoes.remove(shoe)
+                        return shoes[:10]
+                        print('4')
             elif valueList[0] == 'premium':
                 with OpenCursor() as cur:
                     SQL = """ SELECT * FROM sneakers WHERE brand=? ORDER BY premium DESC; """

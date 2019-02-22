@@ -46,16 +46,13 @@ input[type=submit]:hover {
 <div class="main" align="center">
     <img type="image" src="{{ url_for('static', filename='upload_new.png') }}" alt="Register" width="400" height="40">
     <p>
-      <font size=5 color="white">If we're missing a shoe, we'd love for you to upload the link and add it to our site!</font>
-    </p>
-    <p>
-        <font size=3 color="white">Keep in mind that it must be a StockX site!</font>
+      <font size=5 color="white">If we're missing a shoe, we'd love for you to upload the name and add it to our site!</font>
     </p>
 </div>
 <form action="/2492/upload" method="post" enctype="multipart/form-data">
 <div class="body" align="center">
     <div>
-        <input name="url" type="text" placeholder="Enter Valid URL" autofocus required>
+        <input name="url" type="text" placeholder="Enter sneaker name" autofocus required>
     </div>
     <input type="submit" value="Upload">
 </div>

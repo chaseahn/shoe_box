@@ -451,34 +451,40 @@ def upload():
     if request.method == 'GET':
         return render_template('/private/upload.html')
     elif request.method == 'POST':
-        url = request.form['url']
-        if 'stockx' not in tsplit(url, ('//', '.')):
-            return render_template('/private/upload.html', 
-                                   message='Not A Valid URL!')
+        name = request.form['url']
+        print(name)
+        lower_name = name.lower().split(' ')
+        print(lower_name)
+        join_name = '-'.join(lower_name)
+        print(join_name)
+        url = 'https://stockx.com/'+str(join_name)
+        print(url)
+        sneaker = Sneaker()
+        shoeData = scrape_new_shoe(url)
+        if not sneaker.existing(shoeData['name']):
+            download_sneaker_img(shoeData)
+            print('.')
+            print('.')
+            print('.')
+            print('DOWNLOADED IMAGE: {}'.format(shoeData['image']))
+            print('.')
+            print('.')
+            print('.')
+            print('.')
+            print('.')
+            print('.')
+            insert_shoe_to_db(shoeData)
+            print('ADDED SHOE TO DATABASE - CONGRATS DUDE')
+            print('.')
+            print('.')
+            print('.')
+            print('.')
+            print('.')
+            print('.')
+            return redirect('/add/success')
         else:
-            sneaker = Sneaker()
-            shoeData = scrape_new_shoe(url)
-            if not sneaker.existing(shoeData['name']):
-                download_sneaker_img(shoeData)
-                print('DOWNLOADED IMAGE: {}'.format(shoeData['image']))
-                print('.')
-                print('.')
-                print('.')
-                print('.')
-                print('.')
-                print('.')
-                insert_shoe_to_db(shoeData)
-                print('ADDED SHOE TO DATABASE - CONGRATS DUDE')
-                print('.')
-                print('.')
-                print('.')
-                print('.')
-                print('.')
-                print('.')
-                return redirect('/add/success')
-            else:
-             return render_template('/private/upload.html', 
-                                    message='Shoe Exists Homie!')
+            return render_template('/private/upload.html', 
+                                message='Shoe Exists Homie!')
     else:
         pass
     
