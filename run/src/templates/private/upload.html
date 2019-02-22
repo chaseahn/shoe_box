@@ -2,6 +2,14 @@
 {% block viewport %}
 <!DOCTYPE html>
 <style>
+  body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 900px; /* You must set a specified height */
+    background-image: url({{ url_for('static', filename='bg51.png') }});
+  }
     input[type=text], select {
   width: 25%;
   padding: 12px 20px;
@@ -34,12 +42,14 @@ input[type=submit]:hover {
   background-color: #97eff1;
 }
 </style>
-
+<body>
 <div class="main" align="center">
     <img type="image" src="{{ url_for('static', filename='upload_new.png') }}" alt="Register" width="400" height="40">
     <p>
-      If we're missing a shoe, we'd love for you to upload the link and add it to our site!
-      Keep in mind that it must be a StockX site!
+      <font size=5 color="white">If we're missing a shoe, we'd love for you to upload the link and add it to our site!</font>
+    </p>
+    <p>
+        <font size=3 color="white">Keep in mind that it must be a StockX site!</font>
     </p>
 </div>
 <form action="/2492/upload" method="post" enctype="multipart/form-data">
@@ -53,5 +63,6 @@ input[type=submit]:hover {
   {{message}}
 </div>
 </form>
+</body>
 
     {% endblock %}

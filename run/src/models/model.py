@@ -127,6 +127,38 @@ class User:
         else:
             favorite_list=[]
             return favorite_list
+
+    def get_dislikes(self,pk):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM shoes_recommended WHERE
+                  user_pk=?; """
+            val = (pk,)
+            cur.execute(SQL,val)
+            row = cur.fetchall()
+        if row:
+            shoe_list = []
+            for rows in row:
+                shoe = rows['shoename']
+                shoe_list.append(shoe)
+            return shoe_list
+        else:
+            return False
+
+    def display_reccomendations(self,pk1,pk2):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM user_favorites WHERE
+                  user_pk=? or user_pk=?; """
+            val = (pk1,pk2)
+            cur.execute(SQL,val)
+            row = cur.fetchall()
+        if row:
+            shoe_list = []
+            for rows in row:
+                shoe = rows['shoename']
+                shoe_list.append(shoe)
+            return shoe_list
+        else:
+            return False
     
     def display_shoebox(self):
         with OpenCursor() as cur:
@@ -139,12 +171,19 @@ class User:
             shoebox = {}
             key=0
             for rows in row:
-
+                
+                """
+                account for no retail/market price (they equal each other)
+                """
                 sneaker = Sneaker(name=rows['shoename'])
-                value = float(sneaker.avg_sale_price)
 
                 if sneaker.retail_price == '--':
                     sneaker.retail_price = sneaker.avg_sale_price
+                
+                if sneaker.avg_sale_price == '--':
+                    sneaker.avg_sale_price = sneaker.retail_price
+
+                value = float(sneaker.avg_sale_price)
 
                 shoebox[key] = {
                     'shoename': rows['shoename'],
@@ -256,33 +295,39 @@ class User:
                 box.user_pk = user_pk
                 box.save()
     
-    def get_preferences(self):
+    def get_account_preferences(self,pk):
         with OpenCursor() as cur:
-            SQL = """ SELECT * FROM user_preferences WHERE
-                  user_pk=?; """
-            val = (self.pk,)
+            SQL = """ SELECT * FROM user_preferences WHERE user_pk=?"""
+            val = (pk,)
             cur.execute(SQL,val)
             row = cur.fetchone()
         if row:
-            brands = row['brand'].split('-')
-            colors = row['color'].split('-')
-            return [brands,colors]
+            user_pref = {}
+            user_pref[row['user_pk']] = {
+                'brand': row['brand'].split('-'),
+                'color': row['color'].split('-')
+            }
+            return user_pref
         else:
             return False
 
-    # def get_like_accounts(self):
-    #     with OpenCursor() as cur:
-    #         SQL = """ SELECT * FROM user_preferences WHERE
-    #               user_pk=?; """
-    #         val = (self.pk,)
-    #         cur.execute(SQL,val)
-    #         row = cur.fetchone()
-    #     if row:
-    #         brands = row['brand'].split('-')
-    #         colors = row['color'].split('-')
-    #         return [brands,colors]
-    #     else:
-    #         return False
+    def get_other_account_preferences(self,pk):
+        with OpenCursor() as cur:
+            SQL = """ SELECT * FROM user_preferences WHERE
+                  user_pk!=?; """
+            val = (pk,)
+            cur.execute(SQL,val)
+            row = cur.fetchall()
+        if row:
+            other_pref = {}
+            for rows in row:
+                other_pref[rows['user_pk']] = {
+                    'brand': rows['brand'].split('-'),
+                    'color': rows['color'].split('-')
+                }
+            return other_pref
+        else:
+            return False
 
 
 class ShoeView:
@@ -342,6 +387,37 @@ class ShoeView:
                 val = (shoeName, 1)
                 cur.execute(SQL, val)
                 self.pk = cur.lastrowid
+
+class ShoeRec:
+
+    def __init__(self, row={}):
+        row           = dict(row)
+        self.pk       = row.get('pk')
+        self.shoename = row.get('shoename')
+        self.result   = row.get('result')
+        self.user_pk  = row.get('user_pk')
+
+    def __bool__(self):
+        return bool(self.pk)
+    
+    def save(self):
+        with OpenCursor() as cur:
+            SQL = """ INSERT INTO shoes_recommended(
+                shoename,result, user_pk
+                ) VALUES (?,?,?); """
+            val = (self.shoename,self.result,self.user_pk)
+            cur.execute(SQL,val)
+    
+    def remove(self,shoename):
+        with OpenCursor() as cur:
+            SQL = """ REMOVE FROM user_favorites WHERE 
+                shoename=? and user_pk=?; """
+            val = (shoename,self.pk)
+            cur.execute(SQL,val)
+
+    def __repr__(self):
+        output = 'Account: {}, Shoe: {}'
+        return output.format(self.account_pk,self.shoename)
 
 class UserFavorites:
 
@@ -451,6 +527,7 @@ class ShoeBox:
         self.price_sold   = row.get('price_sold')
         self.profit       = row.get('profit')
         self.user_pk      = row.get('user_pk')
+    
     
     def save(self):
         if self:
@@ -594,6 +671,131 @@ class Sneaker:
                 else:
                     shoes = []
                     return []
+
+    def finder(self, _min, _max, brand, valueList, colorlist = [], no_list=[]):
+        if len(valueList) == 2:
+            with OpenCursor() as cur:
+                SQL = """ SELECT * FROM sneakers WHERE brand=? ORDER BY avg_sale_price DESC; """
+                val = (brand,)
+                cur.execute(SQL,val)
+                data = cur.fetchall()
+            if data:
+                shoes = []
+                if colorlist == []:
+                    for row in data:
+                        if row['avg_sale_price'] == '--':
+                            pass
+                        elif _min < row['avg_sale_price'] < _max:
+                            shoes.append(row['name'])
+                else:
+                    for row in data:
+                        colorway = tsplit(row['colorway'], ('/', '-', ' '))
+                        for color in colorlist:
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            elif color.capitalize() in colorway and _min < row['avg_sale_price'] < _max:
+                                shoes.append(row['name'])
+                
+                if no_list == []:
+                    return shoes[:10]
+                    print('1')
+                else:    
+                    for shoe in shoes:
+                        if shoe in no_list:
+                            shoes.remove(shoe)
+                    return shoes[:10]
+                    print('2')
+
+                
+        elif len(valueList) == 1:
+            if valueList[0] == 'avg_sale_price':
+                with OpenCursor() as cur:
+                    SQL = """ SELECT * FROM sneakers WHERE brand=? ORDER BY avg_sale_price DESC; """
+                    val = (brand,)
+                    cur.execute(SQL,val)
+                    data = cur.fetchall()
+                if data:
+                    shoes = []
+                    if colorlist == []:
+                        for row in data:
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            elif _min < row['avg_sale_price'] < _max:
+                                shoes.append(row['name'])
+                    else:
+                        for row in data:
+                            colorway = tsplit(row['colorway'], ('/', '-', ' '))
+                            for color in colorlist:
+                                if row['avg_sale_price'] == '--':
+                                    pass
+                                elif color.capitalize() in colorway and _min < row['avg_sale_price'] < _max:
+                                    shoes.append(row['name'])
+                    print(shoes[:10])
+                    return shoes[:10]
+            elif valueList[0] == 'premium':
+                with OpenCursor() as cur:
+                    SQL = """ SELECT * FROM sneakers WHERE brand=? ORDER BY premium DESC; """
+                    val = (brand,)
+                    cur.execute(SQL,val)
+                    data = cur.fetchall()
+                if data:
+                    shoes = []
+                    if colorlist == []:
+                        for row in data:
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            elif _min < row['avg_sale_price'] < _max:
+                                shoes.append(row['name'])
+                    else:
+                        for row in data:
+                            colorway = tsplit(row['colorway'], ('/', '-', ' '))
+                            for color in colorlist:
+                                if row['avg_sale_price'] == '--':
+                                    pass
+                                elif color.capitalize() in colorway and _min < row['avg_sale_price'] < _max:
+                                    shoes.append(row['name'])
+
+                if no_list == []:
+                    return shoes[:10]
+                    print('3')
+                else:    
+                    for shoe in shoes:
+                        if shoe in no_list:
+                            shoes.remove(shoe)
+                    return shoes[:10]
+                    print('4')
+        else:
+            with OpenCursor() as cur:
+                SQL = """ SELECT * FROM sneakers WHERE brand=? ORDER BY avg_sale_price DESC; """
+                val = (brand,)
+                cur.execute(SQL,val)
+                data = cur.fetchall()
+            if data:
+                shoes = []
+                if colorlist == []:
+                    for row in data:
+                        if row['avg_sale_price'] == '--':
+                            pass
+                        elif _min < row['avg_sale_price'] < _max:
+                            shoes.append(row['name'])
+                else:
+                    for row in data:
+                        colorway = tsplit(row['colorway'], ('/', '-', ' '))
+                        for color in colorlist:
+                            if row['avg_sale_price'] == '--':
+                                pass
+                            elif color.capitalize() in colorway and _min < row['avg_sale_price'] < _max:
+                                shoes.append(row['name'])
+
+                if no_list == []:
+                    return shoes[:10]
+                    print('5')
+                else:    
+                    for shoe in shoes:
+                        if shoe in no_list:
+                            shoes.remove(shoe)
+                    return shoes[:10]
+                    print('6')
 
     #FIXME ADD TYPE FILTER
     def filter_by(self, brand, type, value, num, colorlist = []):

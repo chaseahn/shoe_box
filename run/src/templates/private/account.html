@@ -1,6 +1,16 @@
 {% extends "structure.html" %}
 {% block viewport %}
 <style>
+  html { 
+  padding-bottom: 200px;
+  }
+  body {
+    background-color: #f9f9f9;
+  }
+  g-container {
+    width: 5%
+  }
+
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -57,23 +67,32 @@
     .container .one-third.column { width: 300px; }
     
     .container .two-thirds.column { width: 620px; }
-    </style>
+</style>
 
 <!DOCTYPE html>
+<body>
 <div class="main" align="center">
-    <h2>Your ShoeBox</h2>
+    <div>
+        <img type="image" src="{{ url_for('static', filename='account_shoebox.png') }}" alt="Favorite" width="20%" >
+    </div>
     <div class="container vertical-divider">
         <div class="column one-third">
-          <h3>You Spent:</h3>
-          <p>{{spent}}</p>
+            <img type="image" src="{{ url_for('static', filename='total_spent.png') }}" alt="Favorite" width="50%" >
+            <p>
+              <font color="green" size="5">${{spent}}</font>
+            </p>
         </div>
         <div class="column one-third">
-          <h3>Is Worth:</h3>
-          <p>{{worth}}</p>
+            <img type="image" src="{{ url_for('static', filename='total_value1.png') }}" alt="Favorite" width="50%" >
+            <p>
+              <font color="green" size="5">${{worth}}</font>
+            </p>
         </div>
         <div class="column one-third">
-          <h3>Profit Earned:</h3>
-          <p>{{profit}}</p>
+          <img type="image" src="{{ url_for('static', filename='total_profit1.png') }}" alt="Favorite" width="50%" >
+          <p>
+            <font color="green" size="5">${{profit}}</font>
+          </p>
         </div>
     </div>
     <font size="2" face="Courier New" >
@@ -138,17 +157,16 @@
     <h3>{{ message }}</h3>
   </p>
 </div>
-<div class="body" align="center">
-  <h3>Favorites</h3>
+<div class="main" align="center">
+  <g-container>
+      {{ chart.render()|safe }}
+      {{ chart2.render()|safe }}
+  </g-container>
 </div>
-  <div class="body" align="center">
-    {% for shoe in favList %}
-    {% set filename = shoe +'.jpg' %}
-        <div style="float: middle; display: inline-block;">
-            <a href="/id/{{shoe}}">
-                <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" width="130" height="95">
-            </a>
-        </div>
-    {% endfor %}
-  </div>
+<div class="main" align="center">
+  <a href="/2492/favorites">
+    <img type="image" src="{{ url_for('static', filename='favorite_arrow.png') }}" alt="Favorite" width="20%" >
+  </a>
+</div>
+</body>
 {% endblock %}

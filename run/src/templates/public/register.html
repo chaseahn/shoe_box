@@ -2,7 +2,22 @@
 {% block viewport %}
 <!DOCTYPE html>
 <style>
-    input[type=text], select {
+.push {
+      margin-top: 110px;
+      margin-left: 140px; /* Add a top margin to avoid content overlay */
+      margin-bottom: 30px;
+    }
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 900px; /* You must set a specified height */
+    background-image: url({{ url_for('static', filename='bg51.png') }});
+}
+
+input[type=text], select {
   width: 25%;
   padding: 12px 20px;
   margin: 8px 2px;
@@ -35,8 +50,8 @@ input[type=submit]:hover {
 }
 </style>
 
-<div class="main" align="center">
-    <img type="image" src="{{ url_for('static', filename='register.png') }}" alt="Register" width="400" height="100">
+<div class="push" align="center">
+    <img type="image" src="{{ url_for('static', filename='register_white.png') }}" alt="Register" width="400" height="100">
 </div>
 <form action="/register" method="post" enctype="multipart/form-data">
 <div class="body" align="center">
@@ -50,15 +65,15 @@ input[type=submit]:hover {
         <input name="conf_password" type="text" placeholder="Confirm Password" autofocus required>
     </div>
     <div>
-        <a>Age</a>
+        <font size=3 color="white">Age</font>
         <select type="number" name="age" method="get" action="/">
             {% for age in age_list %}
             <option value= "{{age}}">{{age}}</option>"
             {% endfor %}
         </select>
-        <a>Male</a>
+        <font size=3 color="white">Male</font>
         <input type="radio" name='check' value="Male" />
-        <a>Female</a>
+        <font size=3 color="white">Female</font>
         <input type="radio" name='check' value='Female'/>
     </div>
     <input type="submit" value="Next">

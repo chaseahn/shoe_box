@@ -1,0 +1,84 @@
+{% extends "structure.html" %}
+{% block viewport %}
+<!DOCTYPE html>
+<style>
+  body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 900px; /* You must set a specified height */
+    background-image: url({{ url_for('static', filename='bg51.png') }});
+}
+input[type=submit] {
+  width: 25%;
+  background-color: #9653e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #97eff1;
+}
+</style>
+
+<style>
+    .nl {
+    text-decoration:none;
+    }
+    .box {
+    display: block;
+    position: relative;
+    width: 30%;
+    padding: 10px;
+    border: 5px solid rgb(170, 24, 214);
+    opacity: 0;
+    z-index: 0;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 19% 19% 19% 19% 19%;
+      grid-gap: 10px;
+      padding: 10px;
+      height: 10%;
+      margin-left: 160px;
+      padding-bottom: 100px;
+    }
+    .grid-item {
+      background-color: white;
+      border: 3px solid #bb14c5; 
+      padding: 5px;
+      font-size: 30px;
+      vertical-align: middle;
+      text-align:  center;
+    }
+</style>   
+
+<div class="main" align="center">
+    <img type="image" src="{{ url_for('static', filename='results_white.png') }}" width="30%">
+</div>
+<form action= "/finder" method="post" enctype="multipart/form-data">
+<div class="grid-container" style="grid-auto-flow: row;" align="center">
+    {% for shoe in shoeList %}
+    {% set filename = shoe +'.jpg' %}
+    <div class="grid-item">
+        <a class="nl" href="/id/{{shoe}}">
+            <img type="image" src="{{ url_for('static', filename=filename) }}" title="{{shoe}}" height="120" width = "150">
+        </a> 
+        <div>
+          <font size="2" color="purple">{{shoe}}</font>
+        </div>
+        <div>
+            <button type="submit" value="{{shoe}}" name="post_button">Dont' Like</button>
+        </div>
+
+
+    </div>
+    {% endfor %}
+    </div>
+</div>
+</form>
+
+
+    {% endblock %}

@@ -2,6 +2,14 @@
 {% block viewport %}
 <!DOCTYPE html>
 <style>
+  body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 900px; /* You must set a specified height */
+    background-image: url({{ url_for('static', filename='bg51.png') }});
+}
     ul {
   list-style-type: none;
 }
@@ -83,11 +91,11 @@ input[type=submit]:hover {
 </style>
 
 <div class="main" align="center">
-    <img type="image" src="{{ url_for('static', filename='preferences.png') }}" alt="Register" width="150">
+    <img type="image" src="{{ url_for('static', filename='user_pref.png') }}" alt="Register" width="30%">
 </div>
 
 <div class="body" align="center">
-    <img type="image" src="{{ url_for('static', filename='brands_icon.png') }}" alt="Nike" width=5% height=auto>
+    <img type="image" src="{{ url_for('static', filename='brands_icon.png') }}" alt="Nike" width=10% height=auto>
 </div>
 
 <div class="body" align="center">
@@ -107,7 +115,7 @@ input[type=submit]:hover {
             </li>
         </ul>
         <div>
-            <img type="image" src="{{ url_for('static', filename='colors_icon.png') }}" alt="Nike" width=5% height=auto>
+            <img type="image" src="{{ url_for('static', filename='colors_icon.png') }}" alt="Nike" width=10% height=auto>
         </div>
         <ul>
             <li><input type="checkbox" id="cb5" name="black" value="black"/>

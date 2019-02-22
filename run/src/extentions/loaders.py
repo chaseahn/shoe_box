@@ -37,15 +37,44 @@ def color_list():
     colorlist = sneaker.get_color_list()
 
 def shoes_like_list(shoename):
+    """ 
+    ----------------------------
+    SHOE SIMILAR IN SHOE_ID PAGE
+    RANDOM VIEW RESULTS
+    ----------------------------
+    """
     sneaker = Sneaker()
     shoe_list = sneaker.get_shoes_no_placeholder('all')
     like_list_major, like_list_minor = [], []
     for shoe in shoe_list: 
-        ignoreList = [ 'of', 'a', 'the', 'air', 'nike', 'adidas', 'jordan', 'red', 'white', 'black', 'green', 'blue', 'pink', 'gum', 'yellow' ]
+
+        """ 
+        -------------------------------------------
+        IGNORE WORDS THAT WONT PRODUCE GOOD RESULTS
+        -------------------------------------------
+        """
+
+        ignoreList = [ 'of', 'a', 'the', 'air', 'nike', 'adidas', 'jordan', 'red', 
+                       'white', 'black', 'green', 'blue', 'pink', 'gum', 'yellow' ]
+
         searchShoe = shoename.lower().split(' ')
         likeShoe = shoe.lower().split(' ')
+
+        """ 
+        ---------------------------
+        CREATE PAIRING STRENGTH (x)
+        SPECIFIC CONDITION = TRUE
+        ---------------------------
+        """
         x = 0
         lessSpecific = True
+
+        """ 
+        -----------------------------
+        CHECK TERMS IN SEARCHED SHOES
+        -----------------------------
+        """
+
         for terms in searchShoe:
             if terms in ignoreList:
                 pass
@@ -53,6 +82,16 @@ def shoes_like_list(shoename):
                 x += 1
             else:
                 pass
+
+        """ 
+        ----------------------------
+        IF PAIRING IS GREATER THAN 4
+           RETURN >= 4
+        ELSE:
+           RETURN 1 < x < 4
+        ----------------------------
+        """
+
         if x >= 4:
             lessSpecific = False
             like_list_major.append(shoe)
@@ -68,9 +107,24 @@ def shoes_like_list(shoename):
 
 
 def search_terms(string,brand):
+
+    """ 
+    -------------------------
+    FILTER FOR SEARCH RESULTS
+    -------------------------
+    """
+
     relevanceListofOne, relevanceListofMany = [], []
     sneaker = Sneaker() 
     shoes = sneaker.get_shoes(brand)
+
+    """ 
+    -----------------------------
+    CHECK FOR ONE WORD SIMILARITY
+    SINGLE CONDITION = TRUE
+    -----------------------------
+    """
+
     single = True
     for shoe in shoes:
         ignoreList = [ 'of', 'a', 'the', 'adidas', 'nike', 'jordan' ]
@@ -91,6 +145,16 @@ def search_terms(string,brand):
             relevanceListofMany.append((shoe,x))
         else:
             relevanceListofOne.append((shoe,x))
+    
+    """ 
+    -----------------------------
+    IF ONE WORD SIMILARITY ONLY
+    ie. "KYRIE" 
+        RETURN ONE-LIST
+    ELSE:
+        RETURN MANY-LIST
+    -----------------------------
+    """
     
     if single:
         relevanceListofOne = [relevant[0] for relevant in relevanceListofOne]
